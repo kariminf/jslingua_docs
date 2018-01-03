@@ -1,0 +1,14 @@
+{
+  "name": "node_jslingua",
+  "version": "1.0.0",
+  "description": "jslingua test using nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "jslingua": "^0.7.0"
+  }
+}
