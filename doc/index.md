@@ -17,6 +17,12 @@ The project regroups these tasks based on language aspects:
 
 - [Info module](./info.md)
 
+- [Trans module](./trans.md)
+  - [Arabic Trans module](./ara.trans.md)
+  - [English Trans module](./eng.trans.md)
+  - [French Trans module](./fra.trans.md)
+  - [Japanese Trans module](./jpn.trans.md)
+
 - [Lang module](./lang.md)
   - [Arabic Lang module](./ara.lang.md)
   - [English Lang module](./eng.lang.md)
