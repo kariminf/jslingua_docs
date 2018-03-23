@@ -16,8 +16,8 @@ var engTrans = new JsLingua.getService("Trans", "eng")();
 
 ```javascript
 engTrans.setCurrentMethod("Morse");
-console.log(araTrans.transliterate("go"));
-console.log(araTrans.untransliterate(".-. . - ..- .-. -."));
+console.log(engTrans.transliterate("go"));
+console.log(engTrans.untransliterate(".-. . - ..- .-. -."));
 ```
 
 The result will be:

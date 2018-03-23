@@ -1,6 +1,7 @@
 # Arabic Trans module
 
 This module is used for transliteration.
+See Arabic romanization on [Wikipedia](https://en.wikipedia.org/wiki/Romanization_of_Arabic)
 
 ## Accessing
 

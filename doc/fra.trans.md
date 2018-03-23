@@ -24,9 +24,9 @@ On the browser side, you have to call English module too, since morse code is sh
 ## Examples
 
 ```javascript
-engTrans.setCurrentMethod("Morse");
-console.log(araTrans.transliterate("père"));
-console.log(araTrans.untransliterate(".--. . .-. ."));
+fraTrans.setCurrentMethod("Morse");
+console.log(fraTrans.transliterate("père"));
+console.log(fraTrans.untransliterate(".--. . .-. ."));
 ```
 
 The result will be:
