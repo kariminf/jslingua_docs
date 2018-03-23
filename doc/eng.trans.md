@@ -24,7 +24,7 @@ The result will be:
 
 ```
 --. ---
-return
+RETURN
 ```
 
 [Return to index](./index.md)
