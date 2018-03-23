@@ -116,3 +116,6 @@ If you implemented a service of a module for a certain language, and want to acc
 ```javascript
 JsLingua.addService("<module>", "<langCode>", theClass);
 ```
+
+
+[Return to index](./index.md)

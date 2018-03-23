@@ -46,3 +46,6 @@ Javascript library to process languages:
   - [OpenNLP](https://github.com/apache/opennlp)
 - Python
   - [NLTK](https://github.com/nltk/nltk)
+
+
+  [Return to index](./index.md)
