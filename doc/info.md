@@ -13,7 +13,7 @@ var Info = JsLingua.Cls.Info;
 ### Access a language implementation of the module
 
 ```javascript
-var info = new JsLingua.getService("Info", "<langCode>")();
+var info = new (JsLingua.getService("Info", "<langCode>"))();
 ```
 
 **langCode** is  [ISO_639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) code of the language

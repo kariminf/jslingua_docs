@@ -6,7 +6,7 @@ See Japanese romanization on [Wikipedia](https://en.wikipedia.org/wiki/Romanizat
 ## Accessing
 
 ```javascript
-var jpnTrans = new JsLingua.getService("Trans", "jpn")();
+var jpnTrans = new (JsLingua.getService("Trans", "jpn"))();
 ```
 
 ## Available transliteration methods

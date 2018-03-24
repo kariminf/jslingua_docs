@@ -13,7 +13,7 @@ var Trans = JsLingua.Cls.Lang;
 ### Access a language implementation of the module
 
 ```javascript
-var lang = new JsLingua.getService("Lang", "<langCode>")();
+var lang = new (JsLingua.getService("Lang", "<langCode>"))();
 ```
 
 ## Charsets
@@ -35,7 +35,7 @@ var belongs = verifCharFunc("<char>");
 For example, in English, we want to test "BasicLatin" charset
 
 ```javascript
-var engLang = new JsLingua.getService("Lang", "eng")();
+var engLang = new (JsLingua.getService("Lang", "eng"))();
 var verifCharFunc = engLang.verifyCharSetFunction("BasicLatin");
 var belongs = verifCharFunc("a"); //true
 belongs = verifCharFunc("ç"); //false
@@ -75,7 +75,7 @@ var transfText = transfFunc(origText);
 For example, in English (minusculeToMajuscule)
 
 ```javascript
-var engLang = new JsLingua.getService("Lang", "eng")();
+var engLang = new (JsLingua.getService("Lang", "eng"))();
 var min2maj = engLang.transformationFunction("minusculeToMajuscule");
 var majText = min2maj("text in minuscule.");
 //The variable majText will be a string of "TEXT IN MINUSCULE."
@@ -92,7 +92,7 @@ var text = lang.pronounceNumber(<number>);
 For example, in English:
 
 ```javascript
-var engLang = new JsLingua.getService("Lang", "eng")();
+var engLang = new (JsLingua.getService("Lang", "eng"))();
 var text = engLang.pronounceNumber(12589);
 //The variable text will be a string of "twelve thousand, five hundred, eighty-nine"
 ```

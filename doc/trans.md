@@ -13,7 +13,7 @@ var Trans = JsLingua.Cls.Trans;
 ### Access a language implementation of the module
 
 ```javascript
-var trans = new JsLingua.getService("Trans", "<langCode>")();
+var trans = new (JsLingua.getService("Trans", "<langCode>"))();
 ```
 
 For "French" language on the browser, you have to import "English" module before.

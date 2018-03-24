@@ -100,13 +100,13 @@ var service = new Service();
 For short
 
 ```javascript
-var service = new JsLingua.getService("<module>", "<langCode>")();
+var service = new (JsLingua.getService("<module>", "<langCode>"))();
 ```
 
 For example, if we want to use the module "Info" of "Arabic" language, we use this code
 
 ```javascript
-var araInfo = new JsLingua.getService("Info", "ara")();
+var araInfo = new (JsLingua.getService("Info", "ara"))();
 ```
 
 ## Add a service

@@ -6,7 +6,7 @@ See Arabic romanization on [Wikipedia](https://en.wikipedia.org/wiki/Romanizatio
 ## Accessing
 
 ```javascript
-var araTrans = new JsLingua.getService("Trans", "ara")();
+var araTrans = new (JsLingua.getService("Trans", "ara"))();
 ```
 
 ## Available transliteration methods

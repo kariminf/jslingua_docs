@@ -5,7 +5,7 @@ This module is used for transliteration.
 ## Accessing
 
 ```javascript
-var engTrans = new JsLingua.getService("Trans", "eng")();
+var engTrans = new (JsLingua.getService("Trans", "eng"))();
 ```
 
 ## Available transliteration methods

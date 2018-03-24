@@ -5,7 +5,7 @@ This module is used for transliteration.
 ## Accessing
 
 ```javascript
-var fraTrans = new JsLingua.getService("Trans", "fra")();
+var fraTrans = new (JsLingua.getService("Trans", "fra"))();
 ```
 
 On the browser side, you have to call English module too, since morse code is shared
