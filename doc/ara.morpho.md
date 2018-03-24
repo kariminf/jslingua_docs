@@ -33,7 +33,7 @@ Arabic module affords the following conjugation forms (we give the options of ea
 
 ```javascript
 {
-  mood: Mood.Indi, // "indicative"
+  mood: Mood.Ind, // "indicative"
   tense: Tense.Pr // "present"
 }
 ```
@@ -42,7 +42,7 @@ Arabic module affords the following conjugation forms (we give the options of ea
 
 ```javascript
 {
-  mood: Mood.Indi, // "indicative"
+  mood: Mood.Ind, // "indicative"
   tense: Tense.Pa // "past"
 }
 ```
@@ -51,7 +51,7 @@ Arabic module affords the following conjugation forms (we give the options of ea
 
 ```javascript
 {
-  mood: Mood.Indi, // "indicative"
+  mood: Mood.Ind, // "indicative"
   tense: Tense.Fu // "future"
 }
 ```
@@ -244,7 +244,7 @@ After that, we conjugate it with the pronoun "She" in the past tense, negative, 
 var verb = "استعمل";
 var opts = {
   //Form properties
-  tense: "present"
+  tense: "present",
 
   //negation and voice properties
   //no need (defaults)
@@ -290,7 +290,7 @@ var verb = "دعى";
 var opts = {
   //Form properties
   //mood: "indicative",
-  tense: "past"
+  tense: "past",
 
   //negation and voice properties
   //no need (defaults)
