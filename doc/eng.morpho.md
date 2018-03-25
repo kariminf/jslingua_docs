@@ -151,7 +151,7 @@ English module affords the following conjugation forms (we give the options of e
 
 ### Pronouns
 
-In English, the pronouns follows person, number and gender properties
+In English, the pronouns follow: person, number and gender properties
 
 #### I
 
@@ -354,6 +354,8 @@ will be taken
 will not be taken
 ```
 
+You can check the code here: [https://runkit.com/kariminf/jslingua-english-conjugation-test-1](https://runkit.com/kariminf/jslingua-english-conjugation-test-1)
+
 ## Stemming
 
 ### Stemming algorithms
@@ -402,6 +404,8 @@ provid
 say
 elect
 ```
+
+You can check the code here: [https://runkit.com/kariminf/jslingua-english-stemming-test-1](https://runkit.com/kariminf/jslingua-english-stemming-test-1)
 
 ## Normalization
 

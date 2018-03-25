@@ -66,7 +66,7 @@ Arabic module affords the following conjugation forms (we give the options of ea
 
 ### Pronouns
 
-In Arabic, the pronouns follows person, number and gender properties
+In Arabic, the pronouns follow: person, number and gender properties
 
 #### I
 
@@ -325,6 +325,8 @@ console.log(araMorpho.conjugate(verb, opts));
 لَمْ يَدْعِيَا
 ```
 
+You can check the code here: [https://runkit.com/kariminf/arabic-conjugation-1](https://runkit.com/kariminf/arabic-conjugation-1)
+
 ## Stemming
 
 ### Stemming algorithms
@@ -364,6 +366,8 @@ The result will be:
 فرش
 فاق
 ```
+
+You can check the code here: [https://runkit.com/kariminf/jslingua-arabic-stemming-test-1](https://runkit.com/kariminf/jslingua-arabic-stemming-test-1)
 
 ## Normalization
 
@@ -416,5 +420,7 @@ The result:
 أَداه
 اداه
 ```
+
+You can check the code here: [https://runkit.com/kariminf/jslingua-arabic-normalization-test-1](https://runkit.com/kariminf/jslingua-arabic-normalization-test-1)
 
 [Return to index](./index.md)
