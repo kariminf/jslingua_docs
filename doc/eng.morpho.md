@@ -365,13 +365,13 @@ For now, English Morpho affords two stemming Algorithms
 #### English Porter stemmer
 
 ```javascript
-araMorpho.setCurrentStemmer("porterStemmer");
+engMorpho.setCurrentStemmer("porterStemmer");
 ```
 
 #### English Lnacaster stemmer
 
 ```javascript
-araMorpho.setCurrentStemmer("lancasterStemmer");
+engMorpho.setCurrentStemmer("lancasterStemmer");
 ```
 
 ### Stemming examples

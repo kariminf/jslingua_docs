@@ -383,7 +383,7 @@ For now, French Morpho affords one stemming Algorithm
 #### French Snowball stemmr
 
 ```javascript
-araMorpho.setCurrentStemmer("snowballFrStemmer");
+fraMorpho.setCurrentStemmer("snowballFrStemmer");
 ```
 
 ### Stemming examples
