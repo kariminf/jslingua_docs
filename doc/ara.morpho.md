@@ -423,4 +423,45 @@ The result:
 
 You can check the code here: [https://runkit.com/kariminf/jslingua-arabic-normalization-test-1](https://runkit.com/kariminf/jslingua-arabic-normalization-test-1)
 
+## Word conversion
+
+### conversion algorithms
+
+For now, Arabic Morpho affords two conversion Algorithms
+
+#### Singular to Plural
+
+It is not complete; It just convert regular nouns
+
+```javascript
+araMorpho.setCurrentPosConverter("singularToPlural");
+```
+
+#### Singular to Dual
+
+It is not complete; It just convert regular nouns
+
+```javascript
+araMorpho.setCurrentPosConverter("singularToDual");
+```
+
+### conversion examples
+
+```javascript
+araMorpho.setCurrentPosConverter("singularToPlural");
+console.log(araMorpho.convertPoS("معلم"));
+console.log(araMorpho.convertPoS("معلمة"));
+araMorpho.setCurrentPosConverter("singularToDual");
+console.log(araMorpho.convertPoS("معلم"));
+console.log(araMorpho.convertPoS("معلمة"));
+```
+The result will be:
+
+```
+معلمون
+معلمات
+معلمان
+معلمتان
+```
+
 [Return to index](./index.md)

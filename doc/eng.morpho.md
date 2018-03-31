@@ -438,4 +438,54 @@ want to
 want
 ```
 
+## Word conversion
+
+### conversion algorithms
+
+For now, English Morpho affords one conversion algorithm
+
+#### Singular to Plural
+
+It is not complete;
+
+```javascript
+engMorpho.setCurrentPosConverter("singularToPlural");
+```
+
+### conversion examples
+
+```javascript
+engMorpho.setCurrentPosConverter("singularToPlural");
+console.log(engMorpho.convertPoS("address"));
+console.log(engMorpho.convertPoS("box"));
+console.log(engMorpho.convertPoS("match"));
+console.log(engMorpho.convertPoS("quiz"));
+console.log(engMorpho.convertPoS("ox"));
+
+console.log(engMorpho.convertPoS("alley"));
+console.log(engMorpho.convertPoS("ally"));
+
+console.log(engMorpho.convertPoS("life"));
+console.log(engMorpho.convertPoS("leaf"));
+console.log(engMorpho.convertPoS("staff"));
+
+console.log(engMorpho.convertPoS("cat"));
+```
+
+The result will be:
+
+```
+addresses
+boxes
+matches
+quizzes
+oxen
+alleys
+allies
+lives
+leaves
+staffs
+cats
+```
+
 [Return to index](./index.md)

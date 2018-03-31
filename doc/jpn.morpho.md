@@ -349,4 +349,8 @@ The result:
 You can check the code here: [https://runkit.com/kariminf/jslingua-japanese-normalization-test-1](https://runkit.com/kariminf/jslingua-japanese-normalization-test-1)
 
 
+## Word conversion
+
+No conversion for now. Japanese doesn't have singular to plural conversions.
+
 [Return to index](./index.md)

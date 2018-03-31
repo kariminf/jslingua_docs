@@ -414,6 +414,12 @@ morpho.setCurrentStemmer("<stemmer's name>");
 
 The stemmer's name must be one of the list afforded by the language
 
+### Get a stemmer's description
+
+```javascript
+var desc = morpho.getStemmerDesc("<stemmer's name>");
+```
+
 ### Stemming a word
 
 ```javascript
@@ -481,6 +487,63 @@ The result:
 اذهَب
 اذهــــــــب
 اذهب
+```
+
+## Words conversion
+
+A list of tools to convert a word to another; for example: plurals, etc.
+
+### conversion algorithms
+
+To get the list of available conversion algorithms implemented for the language
+
+```javascript
+var convList = morpho.availablePosConverters();
+```
+
+It will return a list of strings referring converters names.
+
+### Set the current converter
+
+Before conversion, you have to tell which conversion algorithm you want to use
+
+```javascript
+morpho.setCurrentPosConverter("<converter's name>");
+```
+
+The converter's name must be one of the list afforded by the language
+
+### Get a converter's description
+
+```javascript
+var desc = morpho.getPosConverterDesc("<converter's name>");
+```
+
+### Converting a word
+
+```javascript
+var convWord = morpho.convertPoS("<word>");
+```
+
+### conversion example
+
+Suppose we want to convert English words using "singularToPlural" converter which is available for English.
+
+```javascript
+var morpho = new (JsLingua.getService("Morpho", "eng"))();
+morpho.setCurrentPosConverter("singularToPlural");
+console.log(morpho.convertPoS("ox"));
+console.log(morpho.convertPoS("cat"));
+console.log(morpho.convertPoS("cat"));
+console.log(morpho.convertPoS("life"));
+```
+
+The result will be:
+
+```
+cats
+oxen
+lives
 ```
 
 [Return to index](./index.md)

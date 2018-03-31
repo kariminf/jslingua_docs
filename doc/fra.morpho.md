@@ -412,4 +412,47 @@ major
 
 For now, no normalization.
 
+## Word conversion
+
+### conversion algorithms
+
+For now, French Morpho affords one conversion algorithm
+
+#### Singular to Plural
+
+```javascript
+fraMorpho.setCurrentPosConverter("singularToPlural");
+```
+
+### conversion examples
+
+```javascript
+fraMorpho.setCurrentPosConverter("singularToPlural");
+console.log(engMorpho.convertPoS("souris"));
+console.log(engMorpho.convertPoS("nez"));
+console.log(engMorpho.convertPoS("clou"));
+console.log(engMorpho.convertPoS("chou"));
+console.log(engMorpho.convertPoS("cheval"));
+console.log(engMorpho.convertPoS("chacal"));
+console.log(engMorpho.convertPoS("travail"));
+console.log(engMorpho.convertPoS("bateau"));
+console.log(engMorpho.convertPoS("landau"));
+console.log(engMorpho.convertPoS("arbre"));
+```
+
+The result will be:
+
+```
+souris
+nez
+clous
+choux
+chevaux
+chacals
+travaux
+bateaux
+landaus
+arbres
+```
+
 [Return to index](./index.md)
