@@ -5,7 +5,8 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-var araMorpho = new (JsLingua.getService("Morpho", "ara"))();
+let araMorpho = JsLingua.nserv("morpho", "ara");
+//let araMorpho = new (JsLingua.getService("morpho", "ara"))();
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
@@ -255,16 +256,19 @@ var opts = {
   gender: "masculine"
 
 };
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
+//Or, console.log(araMorpho.conjugate(verb, opts));
 
 opts.gender = "feminine";
 opts.tense = "past";
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
+//Or, console.log(araMorpho.conjugate(verb, opts));
 
 opts.number = "singular";
 opts.negated = 1;
 opts.voice = "passive";
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
+// Or, console.log(araMorpho.conjugate(verb, opts));
 ```
 
 The result:
@@ -301,20 +305,20 @@ var opts = {
   gender: "masculine"
 
 };
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
 
 opts.mood = "imperative";//this will ignore tense
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
 
 opts.negated = 1;//negation is not ignored by imperative mood
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
 
 opts.mood = "indicative";//this will take tense in consideration
 opts.number = "dual";
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
 
 opts.person = "third";
-console.log(araMorpho.conjugate(verb, opts));
+console.log(araMorpho.conj(verb, opts));
 ```
 
 ```
@@ -335,10 +339,12 @@ For now, Arabic Morpho affords two stemming Algorithms
 
 #### ISRI Arabic stemmer
 
-A reimplementation of ISRI Arabic stemmer in javascript
+A reimplementation of ISRI Arabic stemmer in javascript.
 
 ```javascript
-araMorpho.setCurrentStemmer("IsriAraStemmer");
+//in jaslingua < 0.9.0 use "IsriAraStemmer"
+araMorpho.sstem("isri");
+//Or, araMorpho.setCurrentStemmer("isri");
 ```
 
 #### JsLingua Arabic stemmer
@@ -346,13 +352,15 @@ araMorpho.setCurrentStemmer("IsriAraStemmer");
 A modest stemmer for Arabic; In its beginning
 
 ```javascript
-araMorpho.setCurrentStemmer("jslinguaAraStemmer");
+//in jaslingua < 0.9.0 use "jslinguaAraStemmer"
+araMorpho.sstem("jslingua");
+//Or, araMorpho.setCurrentStemmer("jslingua");
 ```
 
 ### Stemming examples
 
 ```javascript
-araMorpho.setCurrentStemmer("IsriAraStemmer");
+araMorpho.sstem("isri");
 console.log(araMorpho.stem("أتكلمونني"));
 console.log(araMorpho.stem("فراشات"));
 console.log(araMorpho.stem("فرشاة"));
@@ -386,22 +394,23 @@ Here, is an example of normalization
 
 ```javascript
 var word = "أذهَــــــــب";
-console.log(araMorpho.normalize(word, "voc"));//just vocalization
-console.log(araMorpho.normalize(word, "alef"));//just alef
-console.log(araMorpho.normalize(word, "_"));//just tatweel
-console.log(araMorpho.normalize(word, "alef,_"));//alif and tatweel
-console.log(araMorpho.normalize(word, "alef,voc"));//alif and vocalization
-console.log(araMorpho.normalize(word));//default: all options
+// use normalize or norm (the same thing)
+console.log(araMorpho.norm(word, "voc"));//just vocalization
+console.log(araMorpho.norm(word, "alef"));//just alef
+console.log(araMorpho.norm(word, "_"));//just tatweel
+console.log(araMorpho.norm(word, "alef,_"));//alif and tatweel
+console.log(araMorpho.norm(word, "alef,voc"));//alif and vocalization
+console.log(araMorpho.norm(word));//default: all options
 
 word = "دَعَـــــــى";
-console.log(araMorpho.normalize(word, "yeh"));//just yeh
-console.log(araMorpho.normalize(word, "_"));//just tatweel
-console.log(araMorpho.normalize(word));//default: all options
+console.log(araMorpho.norm(word, "yeh"));//just yeh
+console.log(araMorpho.norm(word, "_"));//just tatweel
+console.log(araMorpho.norm(word));//default: all options
 
 word = "أَداة";
-console.log(araMorpho.normalize(word, "yeh"));//just yeh
-console.log(araMorpho.normalize(word, "teh"));//just teh
-console.log(araMorpho.normalize(word));//default: all options
+console.log(araMorpho.norm(word, "yeh"));//just yeh
+console.log(araMorpho.norm(word, "teh"));//just teh
+console.log(araMorpho.norm(word));//default: all options
 ```
 
 The result:
@@ -434,7 +443,9 @@ For now, Arabic Morpho affords two conversion Algorithms
 It is not complete; It just convert regular nouns
 
 ```javascript
-araMorpho.setCurrentPosConverter("singularToPlural");
+//in jslingua < 0.9.0 use "singularToPlural"
+araMorpho.sconv("sing2pl");
+//araMorpho.setCurrentPosConverter("sing2pl");
 ```
 
 #### Singular to Dual
@@ -442,18 +453,21 @@ araMorpho.setCurrentPosConverter("singularToPlural");
 It is not complete; It just convert regular nouns
 
 ```javascript
-araMorpho.setCurrentPosConverter("singularToDual");
+//in jslingua < 0.9.0 use "singularToDual"
+araMorpho.sconv("sing2dual");
+//araMorpho.setCurrentPosConverter("sing2dual");
 ```
 
 ### conversion examples
 
 ```javascript
-araMorpho.setCurrentPosConverter("singularToPlural");
-console.log(araMorpho.convertPoS("معلم"));
-console.log(araMorpho.convertPoS("معلمة"));
-araMorpho.setCurrentPosConverter("singularToDual");
-console.log(araMorpho.convertPoS("معلم"));
-console.log(araMorpho.convertPoS("معلمة"));
+araMorpho.sconv("sing2pl");
+console.log(araMorpho.conv("معلم"));
+//Or, console.log(araMorpho.convertPoS("معلم"));
+console.log(araMorpho.conv("معلمة"));
+araMorpho.sconv("sing2dual");
+console.log(araMorpho.conv("معلم"));
+console.log(araMorpho.conv("معلمة"));
 ```
 The result will be:
 
@@ -463,5 +477,6 @@ The result will be:
 معلمان
 معلمتان
 ```
+
 
 [Return to index](./index.md)

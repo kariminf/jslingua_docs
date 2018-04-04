@@ -13,7 +13,8 @@ var Trans = JsLingua.Cls.Lang;
 ### Access a language implementation of the module
 
 ```javascript
-var lang = new (JsLingua.getService("Lang", "<langCode>"))();
+var lang = JsLingua.nserv("lang", "<langCode>");
+//var lang = new (JsLingua.getService("lang", "<langCode>"))();
 ```
 
 ## Charsets
@@ -21,7 +22,8 @@ var lang = new (JsLingua.getService("Lang", "<langCode>"))();
 To get the list of charsets names for the module's language:
 
 ```javascript
-var charsetList = lang.availableCharSets();
+let charsetList = lang.lchars();
+//var charsetList = lang.availableCharSets();
 ```
 
 To verify if a charcater belongs to a charset, you must get the function by affording the charset name
@@ -49,11 +51,27 @@ var contains = verifTextFunc("<text>");
 //returns true or false
 ```
 
+Or, another way:
+
+```javascript
+lang.schars("<charset name>");//set current charset name
+var contains = lang.contains("<text>");
+//returns true or false
+```
+
 To verify if all the text is formed of a given charset
 
 ```javascript
 var verifTextFunc = lang.allCharSetFunction("<charset name>");
 var all = verifTextFunc("<text>");
+//returns true or false
+```
+
+Or, another way:
+
+```javascript
+lang.schars("<charset name>");
+var all = lang.all("<text>");
 //returns true or false
 ```
 
@@ -63,7 +81,8 @@ To transform from a charset to another (for example: min to maj ) there are some
 To get the list of transformation functions names:
 
 ```javascript
-var transfList = lang.availableTransformations();
+let transfList = lang.ltrans();
+//var transfList = lang.availableTransformations();
 ```
 
 To get the function for a given transformation name:
@@ -72,12 +91,27 @@ var transfFunc = lang.transformationFunction("<function name>");
 var transfText = transfFunc(origText);
 ```
 
+Or:
+```javascript
+lang.strans("<function name>");
+var transfText = lang.trans(origText);
+```
+
 For example, in English (minusculeToMajuscule)
 
 ```javascript
 var engLang = new (JsLingua.getService("Lang", "eng"))();
-var min2maj = engLang.transformationFunction("minusculeToMajuscule");
+var min2maj = engLang.transformationFunction("min2maj");
 var majText = min2maj("text in minuscule.");
+//The variable majText will be a string of "TEXT IN MINUSCULE."
+```
+
+Or,
+
+```javascript
+var engLang = JsLingua.gserv("lang", "eng");
+engLang.strans("min2maj");
+var majText = engLang.trans("text in minuscule.");
 //The variable majText will be a string of "TEXT IN MINUSCULE."
 ```
 
@@ -86,15 +120,20 @@ var majText = min2maj("text in minuscule.");
 To pronounce a number in the current language, just use:
 
 ```javascript
-var text = lang.pronounceNumber(<number>);
+var text = lang.nbr2str(<number>);
+//var text = lang.pronounceNumber(<number>);
 ```
 
 For example, in English:
 
 ```javascript
-var engLang = new (JsLingua.getService("Lang", "eng"))();
-var text = engLang.pronounceNumber(12589);
+var engLang = JsLingua.nserv("lang", "eng");
+var text = engLang.nbr2str(12589);
 //The variable text will be a string of "twelve thousand, five hundred, eighty-nine"
 ```
+
+## Storage chaining functions
+
+
 
 [Return to index](./index.md)

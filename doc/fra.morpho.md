@@ -5,7 +5,8 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-var fraMorpho = new (JsLingua.getService("Morpho", "fra"))();
+let fraMorpho = JsLingua.nserv("morpho", "fra");
+//let fraMorpho = new (JsLingua.getService("morpho", "fra"))();
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
@@ -317,28 +318,29 @@ var opts = {
   gender: "feminine"
 };
 console.log("=== Elles: Passé composé ===");
-console.log(fraMorpho.conjugate(verb, opts));
+console.log(fraMorpho.conj(verb, opts));
+//console.log(fraMorpho.conjugate(verb, opts));
 
 //gender doesn't apply with "we", so let it be
 opts.person = "first"; //we
 console.log("=== Nous: Passé composé ===");
-console.log(fraMorpho.conjugate(verb, opts));
+console.log(fraMorpho.conj(verb, opts));
 
 opts.number = "singular"; //I
 opts.tense = "past";
 opts.period = "long";
 console.log("=== Je: plus-que-parfait ===");
-console.log(fraMorpho.conjugate(verb, opts));
+console.log(fraMorpho.conj(verb, opts));
 
 opts.person = "second";
 opts.period = "short";
 console.log("=== Tu: passé antérieur ===");
-console.log(fraMorpho.conjugate(verb, opts));
+console.log(fraMorpho.conj(verb, opts));
 
 opts.mood = "subjunctive";
 opts.aspect = "simple";
 console.log("=== Tu: subjonctif passé ===");
-console.log(fraMorpho.conjugate(verb, opts));
+console.log(fraMorpho.conj(verb, opts));
 ```
 
 The result:
@@ -383,13 +385,15 @@ For now, French Morpho affords one stemming Algorithm
 #### French Snowball stemmr
 
 ```javascript
-fraMorpho.setCurrentStemmer("snowballFrStemmer");
+//jslingua < 0.9.0 use "snowballFrStemmer"
+fraMorpho.sstem("snowball");
+//fraMorpho.setCurrentStemmer("snowball");
 ```
 
 ### Stemming examples
 
 ```javascript
-fraMorpho.setCurrentStemmer("snowballFrStemmer");
+fraMorpho.sstem("snowball");
 console.log(fraMorpho.stem("continué"));
 console.log(fraMorpho.stem("continuelle"));
 console.log(fraMorpho.stem("continuellement"));
@@ -421,23 +425,26 @@ For now, French Morpho affords one conversion algorithm
 #### Singular to Plural
 
 ```javascript
-fraMorpho.setCurrentPosConverter("singularToPlural");
+//jslingua < 0.9.0 use "singularToPlural"
+fraMorpho.sconv("sing2pl");
+//fraMorpho.setCurrentPosConverter("sing2pl");
 ```
 
 ### conversion examples
 
 ```javascript
-fraMorpho.setCurrentPosConverter("singularToPlural");
-console.log(engMorpho.convertPoS("souris"));
-console.log(engMorpho.convertPoS("nez"));
-console.log(engMorpho.convertPoS("clou"));
-console.log(engMorpho.convertPoS("chou"));
-console.log(engMorpho.convertPoS("cheval"));
-console.log(engMorpho.convertPoS("chacal"));
-console.log(engMorpho.convertPoS("travail"));
-console.log(engMorpho.convertPoS("bateau"));
-console.log(engMorpho.convertPoS("landau"));
-console.log(engMorpho.convertPoS("arbre"));
+fraMorpho.sconv("sing2pl");
+console.log(engMorpho.conv("souris"));
+//console.log(engMorpho.convertPoS("souris"));
+console.log(engMorpho.conv("nez"));
+console.log(engMorpho.conv("clou"));
+console.log(engMorpho.conv("chou"));
+console.log(engMorpho.conv("cheval"));
+console.log(engMorpho.conv("chacal"));
+console.log(engMorpho.conv("travail"));
+console.log(engMorpho.conv("bateau"));
+console.log(engMorpho.conv("landau"));
+console.log(engMorpho.conv("arbre"));
 ```
 
 The result will be:

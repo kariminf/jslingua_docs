@@ -6,34 +6,36 @@ See Japanese romanization on [Wikipedia](https://en.wikipedia.org/wiki/Romanizat
 ## Accessing
 
 ```javascript
-var jpnTrans = new (JsLingua.getService("Trans", "jpn"))();
+let jpnTrans = JsLingua.nserv("trans", "jpn");
+//let jpnTrans = new (JsLingua.getService("trans", "jpn"))();
 ```
 
 ## Available transliteration methods
 
-- Hepburn: Hepburn transliteration for Japanese
-- NihonShiki: NihonShiki transliteration for Japanese
-- KunreiShiki: KunreiShiki transliteration for Japanese
+- hepburn: Hepburn transliteration for Japanese
+- nihonshiki: NihonShiki transliteration for Japanese
+- kunreishiki: KunreiShiki transliteration for Japanese
 - Morse: morse code for Japanese
 
 ## Examples
 
 ```javascript
-jpnTrans.setCurrentMethod("Hepburn");
-console.log(jpnTrans.transliterate("つづく"));
-console.log(jpnTrans.untransliterate("tsuzuku"));
+jpnTrans.strans("hepburn");
+//jpnTrans.setCurrentMethod("hepburn");
+console.log(jpnTrans.trans("つづく"));
+console.log(jpnTrans.untrans("tsuzuku"));
 
-jpnTrans.setCurrentMethod("NihonShiki");
-console.log(jpnTrans.transliterate("つづく"));
-console.log(jpnTrans.untransliterate("tuduku"));
+jpnTrans.strans("nihonshiki");
+console.log(jpnTrans.trans("つづく"));
+console.log(jpnTrans.untrans("tuduku"));
 
-jpnTrans.setCurrentMethod("KunreiShiki");
-console.log(jpnTrans.transliterate("つづく"));
-console.log(jpnTrans.untransliterate("tuzuku"));
+jpnTrans.strans("kunreishiki");
+console.log(jpnTrans.trans("つづく"));
+console.log(jpnTrans.untrans("tuzuku"));
 
-jpnTrans.setCurrentMethod("Morse");
-console.log(jpnTrans.transliterate("つづく"));
-console.log(jpnTrans.untransliterate("-..--- .--. .--. .. ...- ...-."));
+jpnTrans.strans("morse");
+console.log(jpnTrans.trans("つづく"));
+console.log(jpnTrans.untrans("-..--- .--. .--. .. ...- ...-."));
 
 ```
 

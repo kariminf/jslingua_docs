@@ -6,29 +6,33 @@ See Arabic romanization on [Wikipedia](https://en.wikipedia.org/wiki/Romanizatio
 ## Accessing
 
 ```javascript
-var araTrans = new (JsLingua.getService("Trans", "ara"))();
+let araTrans = JsLingua.nserv("trans", "ara");
+//Or, let araTrans = new (JsLingua.getService("trans", "ara"))();
 ```
 
 ## Available transliteration methods
 
-- Buckwalter: Buckwalter transliteration for Arabic
-- ArabTeX: ArabTeX transliteration which is used to write Arabic on LaTeX
-- Morse: morse code for Arabic
+- buckwalter: Buckwalter transliteration for Arabic
+- arabtex: ArabTeX transliteration which is used to write Arabic on LaTeX
+- morse: morse code for Arabic
 
 ## Examples
 
 ```javascript
-araTrans.setCurrentMethod("Buckwalter");
-console.log(araTrans.transliterate("ذهب"));
-console.log(araTrans.untransliterate("rjE"));
+araTrans.strans("buckwalter");
+//araTrans.setCurrentMethod("Buckwalter");
+console.log(araTrans.trans("ذهب"));
+//console.log(araTrans.transliterate("ذهب"));
+console.log(araTrans.untrans("rjE"));
+//console.log(araTrans.untransliterate("rjE"));
 
-araTrans.setCurrentMethod("ArabTeX");
-console.log(araTrans.transliterate("ذهب"));
-console.log(araTrans.untransliterate("rj`"));
+araTrans.strans("arabtex");
+console.log(araTrans.trans("ذهب"));
+console.log(araTrans.untrans("rj`"));
 
-araTrans.setCurrentMethod("Morse");
-console.log(araTrans.transliterate("ذهب"));
-console.log(araTrans.untransliterate(".-. .--- .-.-"));
+araTrans.strans("Morse");
+console.log(araTrans.trans("ذهب"));
+console.log(araTrans.untrans(".-. .--- .-.-"));
 
 ```
 

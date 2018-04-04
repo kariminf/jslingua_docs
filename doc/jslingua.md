@@ -71,7 +71,8 @@ Info module has this function, but it is implemented here to facilitate the task
 Almost all languages are left to right "ltr"; the most popular right to left languages are Arabic "ara" and Hebrew "heb"
 
 ```javascript
-var version = JsLingua.getDir("<langCode>");
+let dir = JsLingua.gdir("<langCode>");
+//var dir = JsLingua.getDir("<langCode>");
 ```
 
 **langCode** is  [ISO_639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) code of the language
@@ -81,7 +82,8 @@ It returns either "ltr" or "rtl".
 ## Get a list of languages implementing a module
 
 ```javascript
-var langIDs = JsLingua.serviceLanguages("<module>");
+var langIDs = JsLingua.llang("<module>");
+//var langIDs = JsLingua.serviceLanguages("<module>");
 ```
 
 **module** is the name of the module which we want to recover its implemented languages: "Info", "Lang", "Trans", "Morpho"
@@ -101,12 +103,19 @@ For short
 
 ```javascript
 var service = new (JsLingua.getService("<module>", "<langCode>"))();
+//var service = new (JsLingua.gserv("<module>", "<langCode>"))();
+```
+
+Shorter:
+
+```javascript
+let service = JsLingua.nserv("<module>", "<langCode>");
 ```
 
 For example, if we want to use the module "Info" of "Arabic" language, we use this code
 
 ```javascript
-var araInfo = new (JsLingua.getService("Info", "ara"))();
+let araInfo = JsLingua.nserv("info", "ara");
 ```
 
 ## Add a service

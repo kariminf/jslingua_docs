@@ -5,7 +5,8 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-var jpnMorpho = new (JsLingua.getService("Morpho", "jpn"))();
+let jpnMorpho = JsLingua.nserv("morpho", "jpn");
+//let jpnMorpho = new (JsLingua.getService("morpho", "jpn"))();
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
@@ -199,31 +200,32 @@ var opts = {
   formality: "polite"
 };
 console.log("=== indicative present, affirmative, polite ===");
-console.log(jpnMorpho.conjugate(verb, opts));
+console.log(jpnMorpho.conj(verb, opts));
+//console.log(jpnMorpho.conjugate(verb, opts));
 
 opts.tense = "past";
 opts.negated = 1;
 opts.formality = "plain";
 console.log("=== indicative past, negative, plain ===");
-console.log(jpnMorpho.conjugate(verb, opts));
+console.log(jpnMorpho.conj(verb, opts));
 
 opts.aspect = "continuous";
 opts.negated = 0;
 console.log("=== indicative past continuous, affirmative, plain ===");
-console.log(jpnMorpho.conjugate(verb, opts));
+console.log(jpnMorpho.conj(verb, opts));
 
 opts.tense = "present";
 opts.voice = "passive";
 opts.cause = 1;
 opts.aspect = "simple";
 console.log("=== causative passive, affirmative, plain ===");
-console.log(jpnMorpho.conjugate(verb, opts));
+console.log(jpnMorpho.conj(verb, opts));
 
 opts.mood = "potential";
 opts.voice = "active";
 opts.cause = 0; //otherwise, it takes cause in consideration
 console.log("=== Potential, affirmative, plain ===");
-console.log(jpnMorpho.conjugate(verb, opts));
+console.log(jpnMorpho.conj(verb, opts));
 ```
 
 The result:
@@ -255,13 +257,15 @@ This is a descent algorithm to stem Japanese words.
 We tried to chop the endings related to verbs and adjectives conjugation.
 
 ```javascript
-jpnMorpho.setCurrentStemmer("jslinguaJpnStemmer");
+//jslingua < 0.9.0 use "jslinguaJpnStemmer"
+jpnMorpho.sstem("jslingua");
+//jpnMorpho.setCurrentStemmer("jslingua");
 ```
 
 ### Stemming examples
 
 ```javascript
-jpnMorpho.setCurrentStemmer("jslinguaJpnStemmer");
+jpnMorpho.sstem("jslingua");
 console.log(jpnMorpho.stem("読ませている"));
 console.log(jpnMorpho.stem("強調したい"));
 console.log(jpnMorpho.stem("伝わっていない"));
@@ -291,33 +295,34 @@ Here, is an example of normalization
 
 ```javascript
 console.log("=== Chat ===");
-console.log(jpnMorpho.normalize("そうかなぁぁぁぁ"));
-console.log(jpnMorpho.normalize("すげえええ"));
+console.log(jpnMorpho.norm("そうかなぁぁぁぁ"));
+//console.log(jpnMorpho.normalize("そうかなぁぁぁぁ"));
+console.log(jpnMorpho.norm("すげえええ"));
 
 console.log("=== Hakata Ben ===");
-console.log(jpnMorpho.normalize("犬やない"));
-console.log(jpnMorpho.normalize("言ったばい"));
+console.log(jpnMorpho.norm("犬やない"));
+console.log(jpnMorpho.norm("言ったばい"));
 
 console.log("=== Osaka Ben ===");
-console.log(jpnMorpho.normalize("飲まへん"));
-console.log(jpnMorpho.normalize("帰るさかい"));
+console.log(jpnMorpho.norm("飲まへん"));
+console.log(jpnMorpho.norm("帰るさかい"));
 
 console.log("=== Hiroshima Ben ===");
-console.log(jpnMorpho.normalize("飲みんさんな"));
+console.log(jpnMorpho.norm("飲みんさんな"));
 
 console.log("=== Kyoto Ben ===");
-console.log(jpnMorpho.normalize("行きますえ"));
+console.log(jpnMorpho.norm("行きますえ"));
 
 console.log("=== Nagoya Ben ===");
-console.log(jpnMorpho.normalize("書いてちょう"));
+console.log(jpnMorpho.norm("書いてちょう"));
 
 console.log("=== Sendai Ben ===");
-console.log(jpnMorpho.normalize("寒いべ"));
-console.log(jpnMorpho.normalize("日本人だべ"));
+console.log(jpnMorpho.norm("寒いべ"));
+console.log(jpnMorpho.norm("日本人だべ"));
 
 console.log("=== Hokkaido Ben ===");
-console.log(jpnMorpho.normalize("寒いべ"));
-console.log(jpnMorpho.normalize("寒いっしょ"));
+console.log(jpnMorpho.norm("寒いべ"));
+console.log(jpnMorpho.norm("寒いっしょ"));
 ```
 
 The result:

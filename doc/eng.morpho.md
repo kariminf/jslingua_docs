@@ -5,7 +5,8 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-var engMorpho = new (JsLingua.getService("Morpho", "eng"))();
+let engMorpho = JsLingua.nserv("morpho", "eng");
+//let engMorpho = new (JsLingua.getService("morpho", "eng"))();
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
@@ -267,20 +268,21 @@ var opts = {
   person: "third",
   number: "plural"
 };
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
+//console.log(engMorpho.conjugate(verb, opts));
 
 opts.gender = "masculine";
 opts.number = "singular";
 opts.tense = "past";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.gender = "feminine";
 opts.negated = 1;
 opts.voice = "passive";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.aspect = "continuous";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 ```
 
 The result:
@@ -322,26 +324,26 @@ var opts = {
   gender: "masculine"
 
 };
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.tense = "past";
 opts.aspect = "perfect";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.aspect = "perfect-continuous";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.aspect = "simple";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.voice = "passive";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.tense = "future";
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 
 opts.negated = 1;
-console.log(engMorpho.conjugate(verb, opts));
+console.log(engMorpho.conj(verb, opts));
 ```
 
 ```
@@ -365,26 +367,29 @@ For now, English Morpho affords two stemming Algorithms
 #### English Porter stemmer
 
 ```javascript
-engMorpho.setCurrentStemmer("porterStemmer");
+//jslingua < 0.9.0 use "porterStemmer"
+engMorpho.sstem("porter");
+//Or, engMorpho.setCurrentStemmer("porter");
 ```
 
 #### English Lnacaster stemmer
 
 ```javascript
-engMorpho.setCurrentStemmer("lancasterStemmer");
+//jslingua < 0.9.0 use "lancasterStemmer"
+engMorpho.sstem("lancaster");
 ```
 
 ### Stemming examples
 
 ```javascript
 console.log("=== porter Stemmer ===");
-engMorpho.setCurrentStemmer("porterStemmer");
+engMorpho.sstem("porter");
 console.log(engMorpho.stem("presumably"));
 console.log(engMorpho.stem("provision"));
 console.log(engMorpho.stem("saying"));
 console.log(engMorpho.stem("electrical"));
 
-engMorpho.setCurrentStemmer("lancasterStemmer");
+engMorpho.sstem("lancaster");
 console.log(engMorpho.stem("presumably"));
 console.log(engMorpho.stem("provision"));
 console.log(engMorpho.stem("saying"));
@@ -415,14 +420,15 @@ Its function is to return informal words to standard English.
 Here, is an example of normalization
 
 ```javascript
-console.log(engMorpho.normalize("ain't"));
-console.log(engMorpho.normalize("innit"));
-console.log(engMorpho.normalize("gonna"));
-console.log(engMorpho.normalize("gotta"));
-console.log(engMorpho.normalize("outta"));
-console.log(engMorpho.normalize("sorta"));
-console.log(engMorpho.normalize("wanna"));
-console.log(engMorpho.normalize("want"));
+console.log(engMorpho.norm("ain't"));
+//console.log(engMorpho.normalize("ain't"));
+console.log(engMorpho.norm("innit"));
+console.log(engMorpho.norm("gonna"));
+console.log(engMorpho.norm("gotta"));
+console.log(engMorpho.norm("outta"));
+console.log(engMorpho.norm("sorta"));
+console.log(engMorpho.norm("wanna"));
+console.log(engMorpho.norm("want"));
 ```
 
 The result:
@@ -449,27 +455,30 @@ For now, English Morpho affords one conversion algorithm
 It is not complete;
 
 ```javascript
-engMorpho.setCurrentPosConverter("singularToPlural");
+//jslingua < 0.9.0 use "singularToPlural"
+engMorpho.sconv("sing2pl");
+//engMorpho.setCurrentPosConverter("sing2pl");
 ```
 
 ### conversion examples
 
 ```javascript
-engMorpho.setCurrentPosConverter("singularToPlural");
-console.log(engMorpho.convertPoS("address"));
-console.log(engMorpho.convertPoS("box"));
-console.log(engMorpho.convertPoS("match"));
-console.log(engMorpho.convertPoS("quiz"));
-console.log(engMorpho.convertPoS("ox"));
+engMorpho.sconv("sing2pl");
+console.log(engMorpho.conv("address"));
+//console.log(engMorpho.convertPoS("address"));
+console.log(engMorpho.conv("box"));
+console.log(engMorpho.conv("match"));
+console.log(engMorpho.conv("quiz"));
+console.log(engMorpho.conv("ox"));
 
-console.log(engMorpho.convertPoS("alley"));
-console.log(engMorpho.convertPoS("ally"));
+console.log(engMorpho.conv("alley"));
+console.log(engMorpho.conv("ally"));
 
-console.log(engMorpho.convertPoS("life"));
-console.log(engMorpho.convertPoS("leaf"));
-console.log(engMorpho.convertPoS("staff"));
+console.log(engMorpho.conv("life"));
+console.log(engMorpho.conv("leaf"));
+console.log(engMorpho.conv("staff"));
 
-console.log(engMorpho.convertPoS("cat"));
+console.log(engMorpho.conv("cat"));
 ```
 
 The result will be:
