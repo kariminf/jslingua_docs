@@ -145,7 +145,7 @@ let engLang = JsLingua.nserv("lang", "eng");
 engLang.s.clear();
 ```
 
-## Storage chaining functions for transformation
+### For transformation
 
 The functions afforded by **Lang.s** are:
 
@@ -166,7 +166,7 @@ This will result in:
 ["ABA", "BAB", "AAB", "aba", "aa"]
 ```
 
-## Storage chaining functions for number pronunciation
+### For number pronunciation
 
 The functions afforded by **Lang.s** are:
 
