@@ -134,6 +134,76 @@ var text = engLang.nbr2str(12589);
 
 ## Storage chaining functions
 
+If you want to apply the same operation over and over, and get the list of results;
+JsLingua affords the storage chaining functions for Lang module.
+
+We access the storage via the object **Lang.s**. There is a function called **clear()** which clears
+the storage. It is recommended to call it first, in case you used **Lang.s** before.
+
+```javascript
+let engLang = JsLingua.nserv("lang", "eng");
+engLang.s.clear();
+```
+
+## Storage chaining functions for transformation
+
+The functions afforded by **Lang.s** are:
+
+- **Lang.s.strans(< trans name >)**: sets the transformation method.
+- **Lang.s.trans(< text >)**: transforms the text using the transformation method, and stores the result in an inner table.
+- **Lang.s.ltrans()**: returns the result table
+
+Suppose, we want to apply a series of charsets transformations: "maj2min" and "min2maj"
+
+```javascript
+let engLang = JsLingua.nserv("lang", "eng");
+engLang.s.clear().strans("min2maj").trans("AbA").trans("BaB").trans("aaB").strans("maj2min").trans("AbA").trans("AA");
+console.log(engLang.s.ltrans());
+```
+
+This will result in:
+```
+["ABA", "BAB", "AAB", "aba", "aa"]
+```
+
+## Storage chaining functions for number pronunciation
+
+The functions afforded by **Lang.s** are:
+
+- **Lang.s.nbr2str(< number >)**: transforms the number to a text (pronunciation), and stores the result in an inner table.
+- **Lang.s.lnbr2str()**: returns the result table
+
+Example:
+
+```javascript
+let engLang = JsLingua.nserv("lang", "eng");
+engLang.s.clear();
+
+```
+
+This will result in:
+```
+["twelve", "eight hundred, seventy-five"]
+```
+
+## Mixing storage chaining functions
+
+Each result of a function is stored apart. Even if we mix the functions, the results still be in different tables.
+
+Lets mix the previous examples:
+
+```javascript
+let engLang = JsLingua.nserv("lang", "eng");
+engLang.s.clear().strans("min2maj").nbr2str(12).trans("AbA").trans("BaB").trans("aaB").nbr2str(875).strans("maj2min").trans("AbA").trans("AA");
+console.log(engLang.s.ltrans());
+console.log(engLang.s.lnbr2str());
+```
+
+This will result in:
+```
+["ABA", "BAB", "AAB", "aba", "aa"]
+["twelve", "eight hundred, seventy-five"]
+```
 
 
 [Return to index](./index.md)
