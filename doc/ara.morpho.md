@@ -32,6 +32,12 @@ Arabic module affords the following conjugation forms (we give the options of ea
 
 #### Indicative present:
 
+To get the present form:
+
+```javascript
+let form = morpho.gform("pres");
+```
+
 ```javascript
 {
   mood: Mood.Ind, // "indicative"
@@ -40,6 +46,10 @@ Arabic module affords the following conjugation forms (we give the options of ea
 ```
 
 #### Indicative past:
+
+```javascript
+let form = morpho.gform("past");
+```
 
 ```javascript
 {
@@ -51,6 +61,10 @@ Arabic module affords the following conjugation forms (we give the options of ea
 #### Indicative future:
 
 ```javascript
+let form = morpho.gform("fut");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Fu // "future"
@@ -58,6 +72,10 @@ Arabic module affords the following conjugation forms (we give the options of ea
 ```
 
 #### Imperative
+
+```javascript
+let form = morpho.gform("imp");
+```
 
 ```javascript
 {

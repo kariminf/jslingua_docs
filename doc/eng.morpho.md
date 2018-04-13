@@ -33,6 +33,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative present:
 
 ```javascript
+let form = morpho.gform("pres");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Pr, // "present"
@@ -41,6 +45,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative past:
+
+```javascript
+let form = morpho.gform("past");
+```
 
 ```javascript
 {
@@ -53,6 +61,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative future:
 
 ```javascript
+let form = morpho.gform("fut");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Fu, // "future"
@@ -61,6 +73,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative present perfect:
+
+```javascript
+let form = morpho.gform("pres_perf");
+```
 
 ```javascript
 {
@@ -73,6 +89,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative past perfect:
 
 ```javascript
+let form = morpho.gform("past_perf");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Pa, // "past"
@@ -81,6 +101,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative future perfect:
+
+```javascript
+let form = morpho.gform("fut_perf");
+```
 
 ```javascript
 {
@@ -93,6 +117,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative present continuous:
 
 ```javascript
+let form = morpho.gform("pres_cont");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Pr, // "present"
@@ -101,6 +129,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative past continuous:
+
+```javascript
+let form = morpho.gform("past_cont");
+```
 
 ```javascript
 {
@@ -113,6 +145,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative future continuous:
 
 ```javascript
+let form = morpho.gform("fut_cont");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Fu, // "future"
@@ -121,6 +157,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative present perfect continuous:
+
+```javascript
+let form = morpho.gform("pres_perf_cont");
+```
 
 ```javascript
 {
@@ -133,6 +173,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative past perfect continuous:
 
 ```javascript
+let form = morpho.gform("past_perf_cont");
+```
+
+```javascript
 {
   mood: Mood.Ind, // "indicative"
   tense: Tense.Pa, // "past"
@@ -141,6 +185,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative future perfect continuous:
+
+```javascript
+let form = morpho.gform("fut_perf_cont");
+```
 
 ```javascript
 {

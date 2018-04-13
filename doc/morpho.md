@@ -174,17 +174,20 @@ We can get the different forms of a language as an object with the form's name a
 
 ```
 {
-  "Indicative present": {
+  "pres": {
+    desc: "Indicative present",
     mood: Mood.Indi,
     tense: Tense.Pr,
     aspect: Aspect.S
   },
-  "Indicative past": {
+  "past": {
+    desc: "Indicative past",
     mood: Mood.Indi,
     tense: Tense.Pa,
     aspect: Aspect.S
   },
-  "Indicative future": {
+  "fut": {
+    desc: "Indicative future",
     mood: Mood.Indi,
     tense: Tense.Fu,
     aspect: Aspect.S
@@ -199,6 +202,18 @@ let forms = morpho.lform();
 //var forms = morpho.getForms();
 ```
 
+To get a specific form:
+
+```javascript
+let form = morpho.gform(<formName>);
+```
+
+To get its description:
+
+```javascript
+let forms = morpho.gformdesc(<formName>);
+```
+
 English, for example:
 
 ```javascript
@@ -206,6 +221,8 @@ let morpho = JsLingua.nserv("morpho", "eng");//new service
 //var morpho = new (JsLingua.getService("morpho", "eng"))();
 let forms = morpho.lform();//list forms
 //var forms = morpho.getForms();
+let form = morpho.gform("pres");//will contain the form specifications for present
+let formDesc = morpho.gformdesc("pres"); //== Indicative present
 ```
 
 ### Pronouns
@@ -343,9 +360,12 @@ var n = morpho.goptname("Negation", opts);
 To conjugate a verb, we give the verb and the conjugation options to **conjugate** function or its abbreviated version **conj**, as follows:
 
 ```javascript
-let conjugated = morpho.conj("<verb>", <options>);
+let conjugated = morpho.conj("<verb>", <options>, [<form_name>]);
 //var conjugated = morpho.conjugate("<verb>", <options>);
 ```
+
+The options is an object with: mood, tense, aspect, negated, voice, person, number, gender, etc. properties.
+If the form name is afforded, the properties of the options object will be override by the forms properties.
 
 For example, if we want to conjugate the verb **take** in "Indicative past continuous" form, negated and in passive voice with the pronoun **he**:
 
@@ -583,7 +603,7 @@ This will result in:
 
 The functions afforded by **Morpho.s** are:
 
-- **Morpho.s.conj(< verb >, < opts >)**: conjugates the verb using the options and stores the result in an inner table.
+- **Morpho.s.conj(< verb >, < opts >, < form_name >)**: conjugates the verb using the options and stores the result in an inner table.
 The option can be omitted if we want to conjugate another verb with the same options used before.
 - **Morpho.s.lconj()**: returns the result table
 
@@ -592,16 +612,18 @@ Example:
 ```javascript
 let engMorpho = JsLingua.nserv("morpho", "eng");
 let hesheit = {person: "third", number: "singular"};
+let $ = Object.assign;//to fuse two objects
 
 engMorpho.s.clear().conj("go", $({tense:"present"}, hesheit)).conj("fly")
             .conj("fly", $({tense:"past"}, hesheit)).conj("go")
-            .conj("go", $({tense:"future"}, hesheit));
+            .conj("go", $({tense:"future"}, hesheit))
+            .conj("go", hesheit, "pres_perf");
 console.log(engMorpho.s.lconj());
 ```
 
 This will result in:
 ```
-["goes", "flies", "flew", "went", "will go"]
+["goes", "flies", "flew", "went", "will go", "has gone"]
 ```
 
 ### For PoS conversion

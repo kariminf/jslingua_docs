@@ -34,6 +34,10 @@ It integrates conjugation voice, so no need to present it later.
 #### Present:
 
 ```javascript
+let form = morpho.gform("pres");
+```
+
+```javascript
 { // go
   tense: Tense.Pr
 }
@@ -42,12 +46,20 @@ It integrates conjugation voice, so no need to present it later.
 #### Past:
 
 ```javascript
+let form = morpho.gform("past");
+```
+
+```javascript
 { //went
   tense: Tense.Pa
 }
 ```
 
 #### Present continuous:
+
+```javascript
+let form = morpho.gform("pres_cont");
+```
 
 ```javascript
 { //is going
@@ -59,6 +71,10 @@ It integrates conjugation voice, so no need to present it later.
 #### Past continuous:
 
 ```javascript
+let form = morpho.gform("past_cont");
+```
+
+```javascript
 {//was going
   tense: Tense.Pa,
   aspect: Aspect.C
@@ -66,6 +82,10 @@ It integrates conjugation voice, so no need to present it later.
 ```
 
 #### Provision:
+
+```javascript
+let form = morpho.gform("prov");
+```
 
 ```javascript
 {//First type of condition
@@ -77,6 +97,10 @@ It integrates conjugation voice, so no need to present it later.
 #### Condition:
 
 ```javascript
+let form = morpho.gform("cond");
+```
+
+```javascript
 { //Second type of condition
   mood: Mood.Cnd,
   cond: "tara"
@@ -84,6 +108,10 @@ It integrates conjugation voice, so no need to present it later.
 ```
 
 #### Imperative:
+
+```javascript
+let form = morpho.gform("imp");
+```
 
 ```javascript
 {// go
@@ -94,12 +122,20 @@ It integrates conjugation voice, so no need to present it later.
 #### Volitional:
 
 ```javascript
+let form = morpho.gform("vol");
+```
+
+```javascript
 {//let's go //Optative mood
   mood: Mood.Opt
 }
 ```
 
 #### Causative:
+
+```javascript
+let form = morpho.gform("caus");
+```
 
 ```javascript
 {// make go
@@ -110,12 +146,20 @@ It integrates conjugation voice, so no need to present it later.
 #### Potential:
 
 ```javascript
+let form = morpho.gform("pot");
+```
+
+```javascript
 {// I can go
   mood: Mood.Pot
 }
 ```
 
 #### Passive:
+
+```javascript
+let form = morpho.gform("pass");
+```
 
 ```javascript
 {// I can go
@@ -125,6 +169,10 @@ It integrates conjugation voice, so no need to present it later.
 ```
 
 #### Causative Passive:
+
+```javascript
+let form = morpho.gform("caus_pass");
+```
 
 ```javascript
 {// I can go

@@ -33,6 +33,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative Present (présent):
 
 ```javascript
+let form = morpho.gform("pres");
+```
+
+```javascript
 {
   mood: Mood.Ind, //"indicative"
   tense: Tense.Pr, //"present"
@@ -41,6 +45,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative Present perfect (passé composé):
+
+```javascript
+let form = morpho.gform("pres_perf");
+```
 
 ```javascript
 {
@@ -53,6 +61,10 @@ English module affords the following conjugation forms (we give the options of e
 #### Indicative Imperfect (imparfait):
 
 ```javascript
+let form = morpho.gform("imperf");
+```
+
+```javascript
 {
   mood: Mood.Ind, //"indicative"
   tense: Tense.Pr, //"present"
@@ -61,6 +73,10 @@ English module affords the following conjugation forms (we give the options of e
 ```
 
 #### Indicative Pluperfect (plus-que-parfait):
+
+```javascript
+let form = morpho.gform("pluperf");
+```
 
 It is a past action, ended, with a long period of time and anterior to another past action.
 Here, we add the property "period" to differentiate this from "passé antérieur".
@@ -77,6 +93,10 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 #### Indicative Simple past (passé simple):
 
 ```javascript
+let form = morpho.gform("past");
+```
+
+```javascript
 {
   mood: Mood.Ind, //"indicative"
   tense: Tense.Pa, //"past"
@@ -85,6 +105,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 ```
 
 #### Indicative Past perfect (passé antérieur):
+
+
+```javascript
+let form = morpho.gform("past_perf");
+```
 
 ```javascript
 {
@@ -97,6 +122,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 
 #### Indicative Simple future (futur simple):
 
+
+```javascript
+let form = morpho.gform("fut");
+```
+
 ```javascript
 {
   mood: Mood.Ind, //"indicative"
@@ -106,6 +136,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 ```
 
 #### Indicative Future perfect (futur antérieur):
+
+
+```javascript
+let form = morpho.gform("fut_perf");
+```
 
 ```javascript
 {
@@ -117,6 +152,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 
 #### Subjunctive Present:
 
+
+```javascript
+let form = morpho.gform("subj_pres");
+```
+
 ```javascript
 {
   mood: Mood.Sub, //"subjective"
@@ -126,6 +166,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 ```
 
 #### Subjunctive Past (passé):
+
+
+```javascript
+let form = morpho.gform("subj_past");
+```
 
 ```javascript
 {
@@ -137,6 +182,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 
 #### Subjunctive Imperfect:
 
+
+```javascript
+let form = morpho.gform("subj_imperf");
+```
+
 ```javascript
 {
   mood: Mood.Sub, //"subjective"
@@ -146,6 +196,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 ```
 
 #### Subjunctive Pluperfect:
+
+
+```javascript
+let form = morpho.gform("subj_pluperf");
+```
 
 ```javascript
 {
@@ -157,6 +212,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 
 #### Imperative Present:
 
+
+```javascript
+let form = morpho.gform("imp_pres");
+```
+
 ```javascript
 {
   mood: Mood.Imp, //"imperative"
@@ -165,6 +225,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 ```
 
 #### Imperative Past:
+
+
+```javascript
+let form = morpho.gform("imp_past");
+```
 
 ```javascript
 {
@@ -175,6 +240,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 
 #### Conditional Present:
 
+
+```javascript
+let form = morpho.gform("cond_pres");
+```
+
 ```javascript
 {
   mood: Mood.Cnd, //"conditional"
@@ -183,6 +253,11 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 ```
 
 #### Conditional Past (form 1):
+
+
+```javascript
+let form = morpho.gform("cond_past1");
+```
 
 There are two forms of conditional past; this is why we used another property "form".
 
@@ -195,6 +270,11 @@ There are two forms of conditional past; this is why we used another property "f
 ```
 
 #### Conditional Past (form 2):
+
+
+```javascript
+let form = morpho.gform("cond_past2");
+```
 
 ```javascript
 {
