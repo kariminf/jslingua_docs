@@ -5,23 +5,20 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-let fraMorpho = JsLingua.nserv("morpho", "fra");
-//let fraMorpho = new (JsLingua.getService("morpho", "fra"))();
+const fraMorpho = JsLingua.gserv("morpho", "fra");
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
 
 ```javascript
-var Morpho = JsLingua.Cls.Morpho;
 //Different global features
-var F = Morpho.Feature,
-    Tense = F.Tense,
-    Mood = F.Mood,
-    Voice = F.Voice,
-    GNumber = F.Number,
-    Aspect = F.Aspect,
-    Gender = F.Gender,
-    Person = F.Person;
+const Tense = fraMorpho.Tense,
+      Mood = fraMorpho.Mood,
+      Voice = fraMorpho.Voice,
+      GNumber = fraMorpho.GNumber,
+      Aspect = fraMorpho.Aspect,
+      Gender = fraMorpho.Gender,
+      Person = fraMorpho.Person;
 ```
 
 ## Conjugation
@@ -47,7 +44,7 @@ let form = morpho.gform("pres");
 #### Indicative Present perfect (passé composé):
 
 ```javascript
-let form = morpho.gform("pres_perf");
+const form = fraMorpho.gform("pres_perf");
 ```
 
 ```javascript
@@ -61,7 +58,7 @@ let form = morpho.gform("pres_perf");
 #### Indicative Imperfect (imparfait):
 
 ```javascript
-let form = morpho.gform("imperf");
+const form = fraMorpho.gform("imperf");
 ```
 
 ```javascript
@@ -75,7 +72,7 @@ let form = morpho.gform("imperf");
 #### Indicative Pluperfect (plus-que-parfait):
 
 ```javascript
-let form = morpho.gform("pluperf");
+const form = fraMorpho.gform("pluperf");
 ```
 
 It is a past action, ended, with a long period of time and anterior to another past action.
@@ -93,7 +90,7 @@ Here, we add the property "period" to differentiate this from "passé antérieur
 #### Indicative Simple past (passé simple):
 
 ```javascript
-let form = morpho.gform("past");
+const form = fraMorpho.gform("past");
 ```
 
 ```javascript
@@ -108,7 +105,7 @@ let form = morpho.gform("past");
 
 
 ```javascript
-let form = morpho.gform("past_perf");
+const form = fraMorpho.gform("past_perf");
 ```
 
 ```javascript
@@ -124,7 +121,7 @@ let form = morpho.gform("past_perf");
 
 
 ```javascript
-let form = morpho.gform("fut");
+const form = fraMorpho.gform("fut");
 ```
 
 ```javascript
@@ -139,7 +136,7 @@ let form = morpho.gform("fut");
 
 
 ```javascript
-let form = morpho.gform("fut_perf");
+const form = fraMorpho.gform("fut_perf");
 ```
 
 ```javascript
@@ -154,7 +151,7 @@ let form = morpho.gform("fut_perf");
 
 
 ```javascript
-let form = morpho.gform("subj_pres");
+const form = fraMorpho.gform("subj_pres");
 ```
 
 ```javascript
@@ -169,7 +166,7 @@ let form = morpho.gform("subj_pres");
 
 
 ```javascript
-let form = morpho.gform("subj_past");
+const form = fraMorpho.gform("subj_past");
 ```
 
 ```javascript
@@ -184,7 +181,7 @@ let form = morpho.gform("subj_past");
 
 
 ```javascript
-let form = morpho.gform("subj_imperf");
+const form = fraMorpho.gform("subj_imperf");
 ```
 
 ```javascript
@@ -199,7 +196,7 @@ let form = morpho.gform("subj_imperf");
 
 
 ```javascript
-let form = morpho.gform("subj_pluperf");
+const form = fraMorpho.gform("subj_pluperf");
 ```
 
 ```javascript
@@ -214,7 +211,7 @@ let form = morpho.gform("subj_pluperf");
 
 
 ```javascript
-let form = morpho.gform("imp_pres");
+const form = fraMorpho.gform("imp_pres");
 ```
 
 ```javascript
@@ -228,7 +225,7 @@ let form = morpho.gform("imp_pres");
 
 
 ```javascript
-let form = morpho.gform("imp_past");
+const form = fraMorpho.gform("imp_past");
 ```
 
 ```javascript
@@ -242,7 +239,7 @@ let form = morpho.gform("imp_past");
 
 
 ```javascript
-let form = morpho.gform("cond_pres");
+const form = fraMorpho.gform("cond_pres");
 ```
 
 ```javascript
@@ -256,7 +253,7 @@ let form = morpho.gform("cond_pres");
 
 
 ```javascript
-let form = morpho.gform("cond_past1");
+const form = fraMorpho.gform("cond_past1");
 ```
 
 There are two forms of conditional past; this is why we used another property "form".
@@ -273,7 +270,7 @@ There are two forms of conditional past; this is why we used another property "f
 
 
 ```javascript
-let form = morpho.gform("cond_past2");
+const form = fraMorpho.gform("cond_past2");
 ```
 
 ```javascript
@@ -292,7 +289,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.F, // "first"
+  person: Person.F, // "first"
   number: GNumber.S // "singular"
 }
 ```
@@ -301,7 +298,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.F, // "first"
+  person: Person.F, // "first"
   number: GNumber.P // "plural"
 }
 ```
@@ -310,7 +307,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.S // "singular"
 }
 ```
@@ -319,7 +316,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.P // "plural"
 }
 ```
@@ -328,7 +325,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.M // "masculine"
 }
@@ -338,7 +335,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "third"
+  person: Person.S, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.F // "feminine"
 }
@@ -348,7 +345,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.P, // "plural", even "dual" will work as "plural"
   gender: Gender.M // "masculine"
 }
@@ -358,7 +355,7 @@ In French, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.P, // "plural", even "dual" will work as "plural"
   gender: Gender.F // "feminine"
 }
@@ -366,11 +363,29 @@ In French, the pronouns follow: person, number and gender properties
 
 ### Voices
 
-The module affords just active voice (for now)
+French module affords passive and active voices
+
+```javascript
+{
+  voice: Voice.A //"active"
+}
+```
+
+```javascript
+{
+  voice: Voice.P //"passive"
+}
+```
 
 ### Negations
 
-The module affords affirmative conjugation.
+French module affords negative conjugation. In case of affirmative, just ignore this property
+
+```javascript
+{
+  negated: 1
+}
+```
 
 ### Conjugation examples
 
@@ -385,8 +400,8 @@ Next, we conjugate it with the pronoun "You (singular)", in "passé antérieur":
 Finally, we conjugate it in "Subjunctive past": subjunctive mood, past tense, simple aspect; with the pronoun "You (singular)".
 
 ```javascript
-var verb = "aller";
-var opts = {
+const verb = "aller";
+const opts = {
   //Form properties
   mood: "indicative",
   tense: "present",
@@ -467,7 +482,6 @@ For now, French Morpho affords one stemming Algorithm
 ```javascript
 //jslingua < 0.9.0 use "snowballFrStemmer"
 fraMorpho.sstem("snowball");
-//fraMorpho.setCurrentStemmer("snowball");
 ```
 
 ### Stemming examples

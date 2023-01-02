@@ -12,28 +12,33 @@ let engMorpho = JsLingua.nserv("morpho", "eng");
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
 
 ```javascript
-var Morpho = JsLingua.Cls.Morpho;
 //Different global features
-var F = Morpho.Feature,
-    Tense = F.Tense,
-    Mood = F.Mood,
-    Voice = F.Voice,
-    GNumber = F.Number,
-    Aspect = F.Aspect,
-    Gender = F.Gender,
-    Person = F.Person;
+const Tense = engMorpho.Tense,
+      Mood = engMorpho.Mood,
+      Voice = engMorpho.Voice,
+      GNumber = engMorpho.Number,
+      Aspect = engMorpho.Aspect,
+      Gender = engMorpho.Gender,
+      Person = engMorpho.Person;
 ```
 
 ## Conjugation
 
 ###  Conjugation forms
 
-English module affords the following conjugation forms (we give the options of each)
+English module affords the following conjugation forms (we give the options of each).
+
+To get the forms :
+
+```javascript
+const forms = engMorpho.lform();
+```
+
 
 #### Indicative present:
 
 ```javascript
-let form = morpho.gform("pres");
+const form = engMorpho.gform("pres");
 ```
 
 ```javascript
@@ -47,7 +52,7 @@ let form = morpho.gform("pres");
 #### Indicative past:
 
 ```javascript
-let form = morpho.gform("past");
+const form = engMorpho.gform("past");
 ```
 
 ```javascript
@@ -61,7 +66,7 @@ let form = morpho.gform("past");
 #### Indicative future:
 
 ```javascript
-let form = morpho.gform("fut");
+const form = engMorpho.gform("fut");
 ```
 
 ```javascript
@@ -75,7 +80,7 @@ let form = morpho.gform("fut");
 #### Indicative present perfect:
 
 ```javascript
-let form = morpho.gform("pres_perf");
+const form = engMorpho.gform("pres_perf");
 ```
 
 ```javascript
@@ -89,7 +94,7 @@ let form = morpho.gform("pres_perf");
 #### Indicative past perfect:
 
 ```javascript
-let form = morpho.gform("past_perf");
+const form = engMorpho.gform("past_perf");
 ```
 
 ```javascript
@@ -103,7 +108,7 @@ let form = morpho.gform("past_perf");
 #### Indicative future perfect:
 
 ```javascript
-let form = morpho.gform("fut_perf");
+const form = engMorpho.gform("fut_perf");
 ```
 
 ```javascript
@@ -117,7 +122,7 @@ let form = morpho.gform("fut_perf");
 #### Indicative present continuous:
 
 ```javascript
-let form = morpho.gform("pres_cont");
+const form = engMorpho.gform("pres_cont");
 ```
 
 ```javascript
@@ -131,7 +136,7 @@ let form = morpho.gform("pres_cont");
 #### Indicative past continuous:
 
 ```javascript
-let form = morpho.gform("past_cont");
+const form = engMorpho.gform("past_cont");
 ```
 
 ```javascript
@@ -145,7 +150,7 @@ let form = morpho.gform("past_cont");
 #### Indicative future continuous:
 
 ```javascript
-let form = morpho.gform("fut_cont");
+const form = engMorpho.gform("fut_cont");
 ```
 
 ```javascript
@@ -159,7 +164,7 @@ let form = morpho.gform("fut_cont");
 #### Indicative present perfect continuous:
 
 ```javascript
-let form = morpho.gform("pres_perf_cont");
+const form = engMorpho.gform("pres_perf_cont");
 ```
 
 ```javascript
@@ -173,7 +178,7 @@ let form = morpho.gform("pres_perf_cont");
 #### Indicative past perfect continuous:
 
 ```javascript
-let form = morpho.gform("past_perf_cont");
+const form = engMorpho.gform("past_perf_cont");
 ```
 
 ```javascript
@@ -187,7 +192,7 @@ let form = morpho.gform("past_perf_cont");
 #### Indicative future perfect continuous:
 
 ```javascript
-let form = morpho.gform("fut_perf_cont");
+const form = engMorpho.gform("fut_perf_cont");
 ```
 
 ```javascript
@@ -206,7 +211,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.F, // "first"
+  person: Person.F, // "first"
   number: GNumber.S // "singular"
 }
 ```
@@ -215,7 +220,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.F, // "first"
+  person: Person.F, // "first"
   number: GNumber.P // "plural"
 }
 ```
@@ -224,7 +229,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S // "second"
+  person: Person.S // "second"
 }
 ```
 
@@ -232,7 +237,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.M // "masculine"
 }
@@ -242,7 +247,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "third"
+  person: Person.S, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.F // "feminine"
 }
@@ -252,7 +257,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "third"
+  person: Person.S, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.N // "neuter"
 }
@@ -262,7 +267,7 @@ In English, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.P // "plural", even "dual" will work as "plural"
 }
 ```
@@ -289,7 +294,7 @@ English module affords negative conjugation. In case of affirmative, just ignore
 
 ```javascript
 {
-  negated:1
+  negated: 1
 }
 ```
 
@@ -304,8 +309,8 @@ After that, we conjugate it with the pronoun "She" in the past tense, negative, 
 Next, we conjugate it with the pronoun "She" in the past tense, negative, passive voice, continuous aspect
 
 ```javascript
-var verb = "use";
-var opts = {
+const verb = "use";
+const opts = {
   //Form properties
   tense: "present",
 
@@ -317,7 +322,7 @@ var opts = {
   number: "plural"
 };
 console.log(engMorpho.conj(verb, opts));
-//console.log(engMorpho.conjugate(verb, opts));
+
 
 opts.gender = "masculine";
 opts.number = "singular";
@@ -357,8 +362,8 @@ Next, in future tense, passive voice
 Finally, in future tense, passive voice, negative.
 
 ```javascript
-var verb = "take";
-var opts = {
+const verb = "take";
+const opts = {
   //Form properties
   //mood: "indicative",
   tense: "present",
@@ -417,7 +422,6 @@ For now, English Morpho affords two stemming Algorithms
 ```javascript
 //jslingua < 0.9.0 use "porterStemmer"
 engMorpho.sstem("porter");
-//Or, engMorpho.setCurrentStemmer("porter");
 ```
 
 #### English Lnacaster stemmer
@@ -469,7 +473,6 @@ Here, is an example of normalization
 
 ```javascript
 console.log(engMorpho.norm("ain't"));
-//console.log(engMorpho.normalize("ain't"));
 console.log(engMorpho.norm("innit"));
 console.log(engMorpho.norm("gonna"));
 console.log(engMorpho.norm("gotta"));
@@ -513,7 +516,6 @@ engMorpho.sconv("sing2pl");
 ```javascript
 engMorpho.sconv("sing2pl");
 console.log(engMorpho.conv("address"));
-//console.log(engMorpho.convertPoS("address"));
 console.log(engMorpho.conv("box"));
 console.log(engMorpho.conv("match"));
 console.log(engMorpho.conv("quiz"));

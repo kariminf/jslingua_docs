@@ -5,21 +5,23 @@ This module is used for transliteration.
 ## Accessing
 
 ```javascript
-let engTrans = JsLingua.nserv("trans", "eng");
-//let engTrans = new (JsLingua.getService("trans", "eng"))();
+const engTrans = JsLingua.gserv("trans", "eng");
 ```
 
 ## Available transliteration methods
+
+```javascript
+const transList = engTrans.l();
+```
 
 - morse: morse code for English
 
 ## Examples
 
 ```javascript
-engTrans.strans("morse");
-//engTrans.setCurrentMethod("morse");
-console.log(engTrans.trans("go"));
-console.log(engTrans.untrans(".-. . - ..- .-. -."));
+engTrans.s("morse");
+console.log(engTrans.t("go"));
+console.log(engTrans.u(".-. . - ..- .-. -."));
 ```
 
 The result will be:

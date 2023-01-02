@@ -2,19 +2,10 @@
 
 This module is used to get information about the language.
 
-## Accessing
-
-### Access the module itself
+## Access a language implementation of the module
 
 ```javascript
-var Info = JsLingua.Cls.Info;
-```
-
-### Access a language implementation of the module
-
-```javascript
-let info = JsLingua.nserv("info", "<langCode>");
-//let info = new (JsLingua.getService("info", "<langCode>"))();
+const Info = JsLingua.nserv("info", "<langCode>");
 ```
 
 **langCode** is  [ISO_639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) code of the language
@@ -25,44 +16,44 @@ let info = JsLingua.nserv("info", "<langCode>");
 Getting the name of the language in English
 
 ```javascript
-var name = info.getName();
+let name = Info.gname();
 ```
 
 Getting the name of the language in its original language
 
 ```javascript
-var origname = info.getOrigName();
+let origname = Info.goname();
 ```
 
 Getting [ISO_639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) code of the language
 
 ```javascript
-var code = info.getCode();
+let code = Info.gcode();
 ```
 
 Getting the family of the language
 
 ```javascript
-var family = info.getFamily();
+let family = Info.gfamily();
 ```
 
 Getting the branch of the language
 
 ```javascript
-var family = info.getBranch();
+let family = Info.gbranch();
 ```
 
 Getting the language's direction of writing ("ltr" or "rtl")
 
 ```javascript
-var family = info.getDir();
+let dir = Info.gdir();
 ```
 
 Getting the language's words order (s: subject, v: verb, o:object).
 English is "svo", Arabic is "vso", etc.
 
 ```javascript
-var family = info.getWordOrder();
+let order = Info.gorder();
 ```
 
 

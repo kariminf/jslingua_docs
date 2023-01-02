@@ -5,23 +5,20 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-let jpnMorpho = JsLingua.nserv("morpho", "jpn");
-//let jpnMorpho = new (JsLingua.getService("morpho", "jpn"))();
+const jpnMorpho = JsLingua.gserv("morpho", "jpn");
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
 
 ```javascript
-var Morpho = JsLingua.Cls.Morpho;
 //Different global features
-var F = Morpho.Feature,
-    Tense = F.Tense,
-    Mood = F.Mood,
-    Voice = F.Voice,
-    GNumber = F.Number,
-    Aspect = F.Aspect,
-    Gender = F.Gender,
-    Person = F.Person;
+const Tense = jpnMorpho.Tense,
+      Mood = jpnMorpho.Mood,
+      Voice = jpnMorpho.Voice,
+      GNumber = jpnMorpho.GNumber,
+      Aspect = jpnMorpho.Aspect,
+      Gender = jpnMorpho.Gender,
+      Person = jpnMorpho.Person;
 ```
 
 ## Conjugation
@@ -31,10 +28,16 @@ var F = Morpho.Feature,
 Japanese module affords the following conjugation forms (we give the options of each).
 It integrates conjugation voice, so no need to present it later.
 
+To get the forms :
+
+```javascript
+const forms = jpnMorpho.lform();
+```
+
 #### Present:
 
 ```javascript
-let form = morpho.gform("pres");
+const form = jpnMorpho.gform("pres");
 ```
 
 ```javascript
@@ -46,7 +49,7 @@ let form = morpho.gform("pres");
 #### Past:
 
 ```javascript
-let form = morpho.gform("past");
+const form = jpnMorpho.gform("past");
 ```
 
 ```javascript
@@ -58,7 +61,7 @@ let form = morpho.gform("past");
 #### Present continuous:
 
 ```javascript
-let form = morpho.gform("pres_cont");
+const form = jpnMorpho.gform("pres_cont");
 ```
 
 ```javascript
@@ -71,7 +74,7 @@ let form = morpho.gform("pres_cont");
 #### Past continuous:
 
 ```javascript
-let form = morpho.gform("past_cont");
+const form = jpnMorpho.gform("past_cont");
 ```
 
 ```javascript
@@ -84,7 +87,7 @@ let form = morpho.gform("past_cont");
 #### Provision:
 
 ```javascript
-let form = morpho.gform("prov");
+const form = jpnMorpho.gform("prov");
 ```
 
 ```javascript
@@ -97,7 +100,7 @@ let form = morpho.gform("prov");
 #### Condition:
 
 ```javascript
-let form = morpho.gform("cond");
+const form = jpnMorpho.gform("cond");
 ```
 
 ```javascript
@@ -110,7 +113,7 @@ let form = morpho.gform("cond");
 #### Imperative:
 
 ```javascript
-let form = morpho.gform("imp");
+const form = jpnMorpho.gform("imp");
 ```
 
 ```javascript
@@ -122,7 +125,7 @@ let form = morpho.gform("imp");
 #### Volitional:
 
 ```javascript
-let form = morpho.gform("vol");
+const form = jpnMorpho.gform("vol");
 ```
 
 ```javascript
@@ -134,7 +137,7 @@ let form = morpho.gform("vol");
 #### Causative:
 
 ```javascript
-let form = morpho.gform("caus");
+const form = jpnMorpho.gform("caus");
 ```
 
 ```javascript
@@ -146,7 +149,7 @@ let form = morpho.gform("caus");
 #### Potential:
 
 ```javascript
-let form = morpho.gform("pot");
+const form = jpnMorpho.gform("pot");
 ```
 
 ```javascript
@@ -158,7 +161,7 @@ let form = morpho.gform("pot");
 #### Passive:
 
 ```javascript
-let form = morpho.gform("pass");
+const form = jpnMorpho.gform("pass");
 ```
 
 ```javascript
@@ -171,7 +174,7 @@ let form = morpho.gform("pass");
 #### Causative Passive:
 
 ```javascript
-let form = morpho.gform("caus_pass");
+const form = jpnMorpho.gform("caus_pass");
 ```
 
 ```javascript
@@ -185,7 +188,7 @@ let form = morpho.gform("caus_pass");
 ### Pronouns
 
 In Japanese, conjugation doesn't depend on pronouns.
-But, you can get a pronoun name, if you want, by using the function **getPronounName**.
+But, you can get a pronoun name, if you want, by using the function **goptname**.
 
 Example:
 
@@ -194,7 +197,7 @@ var opts = {
   person: "first",
   number: "plural"
 };
-console.log(jpnMorpho.getPronounName(opts));
+console.log(jpnMorpho.goptname("Pronoun", opts));
 //will print: 私たち
 ```
 
@@ -241,8 +244,8 @@ Next, we conjugate it in "Causative Passive" form.
 Finally, Potential form, polite formality.
 
 ```javascript
-var verb = "行く";
-var opts = {
+const verb = "行く";
+const opts = {
   //Form properties
   tense: "present",
   formality: "polite"

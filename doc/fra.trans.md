@@ -5,8 +5,7 @@ This module is used for transliteration.
 ## Accessing
 
 ```javascript
-let fraTrans = JsLingua.nserv("trans", "fra");
-//let fraTrans = new (JsLingua.getService("trans", "fra"))();
+const fraTrans = JsLingua.gserv("trans", "fra");
 ```
 
 On the browser side, you have to call English module too, since morse code is shared
@@ -17,17 +16,22 @@ On the browser side, you have to call English module too, since morse code is sh
 <script type="text/javascript" src="eng/eng.trans.js" ></script>
 <script type="text/javascript" src="fra/fra.trans.js" ></script>
 ...
+```
 
 ## Available transliteration methods
+
+```javascript
+const transList = engTrans.l();
+```
 
 - morse: morse code for French
 
 ## Examples
 
 ```javascript
-fraTrans.strans("morse");
-console.log(fraTrans.trans("père"));
-console.log(fraTrans.untrans(".--. . .-. ."));
+fraTrans.s("morse");
+console.log(fraTrans.t("père"));
+console.log(fraTrans.u(".--. . .-. ."));
 ```
 
 The result will be:

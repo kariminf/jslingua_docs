@@ -5,37 +5,38 @@ This module is used for morphological tasks such as stemming, conjugation, etc.
 ## Accessing
 
 ```javascript
-let araMorpho = JsLingua.nserv("morpho", "ara");
-//let araMorpho = new (JsLingua.getService("morpho", "ara"))();
+const araMorpho = JsLingua.gserv("morpho", "ara");
 ```
 
 To shorten the code in the rest of this tutorial, we will define different morphological properties here:
 
 ```javascript
-var Morpho = JsLingua.Cls.Morpho;
 //Different global features
-var F = Morpho.Feature,
-    Tense = F.Tense,
-    Mood = F.Mood,
-    Voice = F.Voice,
-    GNumber = F.Number,
-    Aspect = F.Aspect,
-    Gender = F.Gender,
-    Person = F.Person;
+var Tense = araMorpho.Tense,
+    Mood = araMorpho.Mood,
+    Voice = araMorpho.Voice,
+    GNumber = araMorpho.GNumber,
+    Aspect = araMorpho.Aspect,
+    Gender = araMorpho.Gender,
+    Person = araMorpho.Person;
 ```
 
 ## Conjugation
 
 ###  Conjugation forms
 
-Arabic module affords the following conjugation forms (we give the options of each)
+Arabic module affords the following conjugation forms (we give the options of each).
+
+```javascript
+const forms = araMorpho.lform();
+```
 
 #### Indicative present:
 
 To get the present form:
 
 ```javascript
-let form = morpho.gform("pres");
+const form = araMorpho.gform("pres");
 ```
 
 ```javascript
@@ -48,7 +49,7 @@ let form = morpho.gform("pres");
 #### Indicative past:
 
 ```javascript
-let form = morpho.gform("past");
+const form = araMorpho.gform("past");
 ```
 
 ```javascript
@@ -61,7 +62,7 @@ let form = morpho.gform("past");
 #### Indicative future:
 
 ```javascript
-let form = morpho.gform("fut");
+const form = araMorpho.gform("fut");
 ```
 
 ```javascript
@@ -74,7 +75,7 @@ let form = morpho.gform("fut");
 #### Imperative
 
 ```javascript
-let form = morpho.gform("imp");
+const form = araMorpho.gform("imp");
 ```
 
 ```javascript
@@ -91,7 +92,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.F, // "first"
+  person: Person.F, // "first"
   number: GNumber.S // "singular"
 }
 ```
@@ -100,7 +101,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.F, // "first"
+  person: Person.F, // "first"
   number: GNumber.P // "plural"
 }
 ```
@@ -109,7 +110,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.S, // "singular"
   gender: Gender.M // "masculine"
 }
@@ -119,7 +120,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.S, // "singular"
   gender: Gender.F // "feminine"
 }
@@ -129,7 +130,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.D, // "dual"
   gender: Gender.M // "masculine"
 }
@@ -139,7 +140,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.D, // "dual"
   gender: Gender.F // "feminine"
 }
@@ -149,7 +150,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.P, // "plural"
   gender: Gender.M // "masculine"
 }
@@ -159,7 +160,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "second"
+  person: Person.S, // "second"
   number: GNumber.P, // "plural"
   gender: Gender.F // "feminine"
 }
@@ -169,7 +170,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.M // "masculine"
 }
@@ -179,7 +180,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.S, // "third"
+  person: Person.S, // "third"
   number: GNumber.S, // "singular"
   gender: Gender.F // "feminine"
 }
@@ -189,7 +190,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.D, // "dual"
   gender: Gender.M // "masculine"
 }
@@ -199,7 +200,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "they"
+  person: Person.T, // "they"
   number: GNumber.D, // "dual"
   gender: Gender.F // "feminine"
 }
@@ -209,7 +210,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.P, // "plural"
   gender: Gender.M // "masculine"
 }
@@ -219,7 +220,7 @@ In Arabic, the pronouns follow: person, number and gender properties
 
 ```javascript
 {
-  person:Person.T, // "third"
+  person: Person.T, // "third"
   number: GNumber.P, // "plural"
   gender: Gender.F // "feminine"
 }
@@ -260,8 +261,8 @@ Then, we conjugate it with the pronoun "They (plural, feminine)" in the past ten
 After that, we conjugate it with the pronoun "She" in the past tense, negative, passive voice
 
 ```javascript
-var verb = "استعمل";
-var opts = {
+const verb = "استعمل";
+const opts = {
   //Form properties
   tense: "present",
 
@@ -308,8 +309,8 @@ Next, in indicative mood, past tense, negative, with the pronoun "You (dual, mas
 Finally, in indicative mood, past tense, negative, with the pronoun "They (dual, masculine)".
 
 ```javascript
-var verb = "دعى";
-var opts = {
+const verb = "دعى";
+const opts = {
   //Form properties
   //mood: "indicative",
   tense: "past",
@@ -411,7 +412,7 @@ The options are passed as a string; For many options, just separate them with a 
 Here, is an example of normalization
 
 ```javascript
-var word = "أذهَــــــــب";
+let word = "أذهَــــــــب";
 // use normalize or norm (the same thing)
 console.log(araMorpho.norm(word, "voc"));//just vocalization
 console.log(araMorpho.norm(word, "alef"));//just alef
@@ -463,7 +464,6 @@ It is not complete; It just convert regular nouns
 ```javascript
 //in jslingua < 0.9.0 use "singularToPlural"
 araMorpho.sconv("sing2pl");
-//araMorpho.setCurrentPosConverter("sing2pl");
 ```
 
 #### Singular to Dual
@@ -473,7 +473,6 @@ It is not complete; It just convert regular nouns
 ```javascript
 //in jslingua < 0.9.0 use "singularToDual"
 araMorpho.sconv("sing2dual");
-//araMorpho.setCurrentPosConverter("sing2dual");
 ```
 
 ### conversion examples
@@ -481,7 +480,6 @@ araMorpho.sconv("sing2dual");
 ```javascript
 araMorpho.sconv("sing2pl");
 console.log(araMorpho.conv("معلم"));
-//Or, console.log(araMorpho.convertPoS("معلم"));
 console.log(araMorpho.conv("معلمة"));
 araMorpho.sconv("sing2dual");
 console.log(araMorpho.conv("معلم"));

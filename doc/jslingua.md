@@ -1,26 +1,33 @@
 # JsLingua module
 
-This is the main module; It's function is to act as a medium between the other modules.
-It can be used to access the different modules and languages implementing them.
+This is the main module; It manages different languages and modules.
 
 ## Accessing
 
-It is used either in browser or in nodejs to access the different modules, though you can access them directly.
+It is used either in browser or in nodejs to access the different modules.
 
 ### Use in Browser
 
-Just import the class that you want to use and its implementations.
-You, always, have to import "jaslingua" first, then the module class, then its implementations.
+There are two ways, either selecting just some modules, or using a standalone file.
+
+**a) Many files**
+
+Just import the class that you want to use and its language implementation.
+You, always, have to import "jaslingua" first, then the module class, then its language implementation.
 Here the importation of all classes, where:
-- < module > : info, lang, trans, morpho
+- < service > : info, lang, trans, morpho
 - < lang > : ara, eng, fra, jpn
 
 ```javascript
-<script type="text/javascript" src="jslingua.js" ></script>
-<script type="text/javascript" src="<module>.js" ></script>
-<script type="text/javascript" src="<lang>/<lang>.<module>.js" ></script>
+<script type="text/javascript" src="jslingua.mjs" ></script>
+<script type="text/javascript" src="<service>.mjs" ></script>
+<script type="text/javascript" src="<lang>/<lang>.<service>.mjs" ></script>
 ...
 ```
+
+**b) one file containing all package**
+
+Using **webpack**, you can bundle up all implementations into one file **jslingua.js**.
 
 You can use a CDN (content-delivery network):
 
@@ -33,8 +40,6 @@ For example:
 
 ```javascript
 <script type="text/javascript" src="https://unpkg.com/jslingua@latest/jslingua.min.js" ></script>
-<script type="text/javascript" src="https://unpkg.com/jslingua@latest/lang.min.js" ></script>
-<script type="text/javascript" src="https://unpkg.com/jslingua@latest/ara.lang.min.js" ></script>
 ...
 ```
 
@@ -52,15 +57,17 @@ npm i jslingua
 Then in your test file, call the main module "jslingua".
 
 ```javascript
-var JsLingua = require("jslingua");
+const JsLingua = require("jslingua");
 ```
 
 ## Get the version
 
-To get the current version
+Either in browser or nodejs, you will end up with a variable called **JsLingua**.
+
+To get the current version:
 
 ```javascript
-var version = JsLingua.getVersion();
+const version = JsLingua.gversion();
 ```
 
 It returns the version as a string.
@@ -68,11 +75,10 @@ It returns the version as a string.
 ## Get the writing direction
 
 Info module has this function, but it is implemented here to facilitate the task.
-Almost all languages are left to right "ltr"; the most popular right to left languages are Arabic "ara" and Hebrew "heb"
+Almost all languages are left to right "ltr"; the most popular right to left languages are Arabic "ara" and Hebrew "heb".
 
 ```javascript
-let dir = JsLingua.gdir("<langCode>");
-//var dir = JsLingua.getDir("<langCode>");
+const dir = JsLingua.gdir("<langCode>");
 ```
 
 **langCode** is  [ISO_639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) code of the language
@@ -82,8 +88,7 @@ It returns either "ltr" or "rtl".
 ## Get a list of languages implementing a module
 
 ```javascript
-var langIDs = JsLingua.llang("<module>");
-//var langIDs = JsLingua.serviceLanguages("<module>");
+const langIDs = JsLingua.llang("<service>");
 ```
 
 **module** is the name of the module which we want to recover its implemented languages: "Info", "Lang", "Trans", "Morpho"
@@ -92,30 +97,17 @@ It returns a list of [ISO_639-2](https://www.loc.gov/standards/iso639-2/php/code
 
 ## Get a service
 
-Get the class implementing a given **module** and **language**.
+Get the class implementing a given **service** and **langCode**.
+The class contains static methods, so no need to instanciate it.
 
 ```javascript
-var Service = JsLingua.getService("<module>", "<langCode>");
-var service = new Service();
-```
-
-For short
-
-```javascript
-var service = new (JsLingua.getService("<module>", "<langCode>"))();
-//var service = new (JsLingua.gserv("<module>", "<langCode>"))();
-```
-
-Shorter:
-
-```javascript
-let service = JsLingua.nserv("<module>", "<langCode>");
+const Service = JsLingua.gserv("<service>", "<langCode>");
 ```
 
 For example, if we want to use the module "Info" of "Arabic" language, we use this code
 
 ```javascript
-let araInfo = JsLingua.nserv("info", "ara");
+const araInfo = JsLingua.gserv("info", "ara");
 ```
 
 ## Add a service
@@ -123,7 +115,7 @@ let araInfo = JsLingua.nserv("info", "ara");
 If you implemented a service of a module for a certain language, and want to access it via JsLingua's functions, you can add it as:
 
 ```javascript
-JsLingua.addService("<module>", "<langCode>", theClass);
+JsLingua.aserv("<service>", "<langCode>", theClass);
 ```
 
 

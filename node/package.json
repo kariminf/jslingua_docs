@@ -9,6 +9,6 @@
   "author": "Abdelkrime Aries <kariminfo0@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "jslingua": "^0.7.0"
+    "jslingua": "^0.13.0"
   }
 }

@@ -2,19 +2,11 @@
 
 This module is used for morphological tasks such as stemming, conjugation, etc.
 
-## Accessing
 
-### Access the module itself
-
-```javascript
-var Morpho = JsLingua.Cls.Morpho;
-```
-
-### Access a language implementation of the module
+## Access a language implementation of the module
 
 ```javascript
-let morpho = JsLingua.nserv("morpho", "<langCode>");
-//var morpho = new (JsLingua.getService("morpho", "<langCode>"))();
+const Morpho = JsLingua.gserv("morpho", "<langCode>");
 ```
 
 ## Access Morpho properties
@@ -27,7 +19,7 @@ It is an enumeration of different tenses.
 You can get it as shown in the following code:
 
 ```javascript
-var T = Morpho.Feature.Tense;
+const T = Morpho.Tense;
 console.log(T.Pa);
 //will print: past
 ```
@@ -36,9 +28,9 @@ This is a table of available tenses: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Tense.Pa | past |
-| Morpho.Feature.Tense.Pr | present |
-| Morpho.Feature.Tense.Fu | future |
+| Morpho.Tense.Pa | past |
+| Morpho.Tense.Pr | present |
+| Morpho.Tense.Fu | future |
 
 ### Aspect properties
 
@@ -46,7 +38,7 @@ It is an enumeration of different aspects.
 You can get it as shown in the following code:
 
 ```javascript
-var A = Morpho.Feature.Aspect;
+const A = Morpho.Aspect;
 console.log(A.S);
 //will print: simple
 ```
@@ -55,11 +47,11 @@ This is a table of available aspects: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Aspect.S | simple |
-| Morpho.Feature.Aspect.C | continuous |
-| Morpho.Feature.Aspect.P | perfect |
-| Morpho.Feature.Aspect.PC | perfect-continuous |
-| Morpho.Feature.Aspect.I | imperfect |
+| Morpho.Aspect.S | simple |
+| Morpho.Aspect.C | continuous |
+| Morpho.Aspect.P | perfect |
+| Morpho.Aspect.PC | perfect-continuous |
+| Morpho.Aspect.I | imperfect |
 
 ### Mood properties
 
@@ -67,7 +59,7 @@ It is an enumeration of different moods.
 You can get it as shown in the following code:
 
 ```javascript
-var M = Morpho.Feature.Mood;
+const M = Morpho.Mood;
 console.log(M.Ind);
 //will print: indicative
 ```
@@ -76,18 +68,18 @@ This is a table of available moods: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Mood.Ind | indicative |
-| Morpho.Feature.Mood.Imp | imperative |
-| Morpho.Feature.Mood.Cnd | conditional |
-| Morpho.Feature.Mood.Pot | potential |
-| Morpho.Feature.Mood.Sub | subjunctive |
-| Morpho.Feature.Mood.Jus | jussive |
-| Morpho.Feature.Mood.Prp | purposive |
-| Morpho.Feature.Mood.Qot | quotative |
-| Morpho.Feature.Mood.Opt | optative |
-| Morpho.Feature.Mood.Des | desiderative |
-| Morpho.Feature.Mood.Nec | necessitative |
-| Morpho.Feature.Mood.Adm | admirative |
+| Morpho.Mood.Ind | indicative |
+| Morpho.Mood.Imp | imperative |
+| Morpho.Mood.Cnd | conditional |
+| Morpho.Mood.Pot | potential |
+| Morpho.Mood.Sub | subjunctive |
+| Morpho.Mood.Jus | jussive |
+| Morpho.Mood.Prp | purposive |
+| Morpho.Mood.Qot | quotative |
+| Morpho.Mood.Opt | optative |
+| Morpho.Mood.Des | desiderative |
+| Morpho.Mood.Nec | necessitative |
+| Morpho.Mood.Adm | admirative |
 
 ### Voice properties
 
@@ -95,7 +87,7 @@ It is an enumeration of different conjugation voices.
 You can get it as shown in the following code:
 
 ```javascript
-var V = Morpho.Feature.Voice;
+const V = Morpho.Voice;
 console.log(V.A);
 //will print: active
 ```
@@ -104,9 +96,9 @@ This is a table of available voices: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Voice.A | active |
-| Morpho.Feature.Voice.P | passive |
-| Morpho.Feature.Voice.M | middle |
+| Morpho.Voice.A | active |
+| Morpho.Voice.P | passive |
+| Morpho.Voice.M | middle |
 
 ### Persons number properties
 
@@ -114,7 +106,7 @@ It is an enumeration of different persons numbers for personal pronouns.
 You can get it as shown in the following code:
 
 ```javascript
-var Num = Morpho.Feature.Number;
+const Num = Morpho.GNumber;
 console.log(Num.P);
 //will print: plural
 ```
@@ -123,9 +115,9 @@ This is a table of available numbers: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Number.S | singular |
-| Morpho.Feature.Number.D | dual |
-| Morpho.Feature.Number.P | plural |
+| Morpho.GNumber.S | singular |
+| Morpho.GNumber.D | dual |
+| Morpho.GNumber.P | plural |
 
 ### Persons properties
 
@@ -133,7 +125,7 @@ It is an enumeration of different persons (first, second, third) for personal pr
 You can get it as shown in the following code:
 
 ```javascript
-var P = Morpho.Feature.Person;
+const P = Morpho.Person;
 console.log(P.F);
 //will print: first
 ```
@@ -142,9 +134,9 @@ This is a table of available numbers: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Person.F | first |
-| Morpho.Feature.Person.S | second |
-| Morpho.Feature.Person.T | third |
+| Morpho.Person.F | first |
+| Morpho.Person.S | second |
+| Morpho.Person.T | third |
 
 ### Gender properties
 
@@ -152,7 +144,7 @@ It is an enumeration of different genders for personal pronouns.
 You can get it as shown in the following code:
 
 ```javascript
-var G = Morpho.Feature.Gender;
+const G = Morpho.Gender;
 console.log(G.F);
 //will print: feminine
 ```
@@ -161,9 +153,9 @@ This is a table of available numbers: access and string values
 
 | Access | value |
 | --- | --- |
-| Morpho.Feature.Gender.M | masculine |
-| Morpho.Feature.Gender.F | feminine |
-| Morpho.Feature.Gender.N | neuter |
+| Morpho.Gender.M | masculine |
+| Morpho.Gender.F | feminine |
+| Morpho.Gender.N | neuter |
 
 ## Conjugation
 
@@ -198,31 +190,28 @@ We can get the different forms of a language as an object with the form's name a
 To get the forms :
 
 ```javascript
-let forms = morpho.lform();
-//var forms = morpho.getForms();
+const forms = Morpho.lform();
 ```
 
 To get a specific form:
 
 ```javascript
-let form = morpho.gform(<formName>);
+const form = Morpho.gform(<formName>);
 ```
 
 To get its description:
 
 ```javascript
-let forms = morpho.gformdesc(<formName>);
+const form_desc = Morpho.gformdesc(<formName>);
 ```
 
 English, for example:
 
 ```javascript
-let morpho = JsLingua.nserv("morpho", "eng");//new service
-//var morpho = new (JsLingua.getService("morpho", "eng"))();
-let forms = morpho.lform();//list forms
-//var forms = morpho.getForms();
-let form = morpho.gform("pres");//will contain the form specifications for present
-let formDesc = morpho.gformdesc("pres"); //== Indicative present
+const engMorpho = JsLingua.gserv("morpho", "eng");//get service
+const forms = engMorpho.lform();//list forms
+const pres_form = engMorpho.gform("pres");//will contain the form specifications for present
+const pres_formDesc = engMorpho.gformdesc("pres"); //== Indicative present
 ```
 
 ### Pronouns
@@ -230,8 +219,7 @@ let formDesc = morpho.gformdesc("pres"); //== Indicative present
 To get the list of pronouns options list ( a list of objects containing: person, number and gender properties):
 
 ```javascript
-let pronounsOpts = morpho.lopt("Pronoun");
-//var pronounsOpts = morpho.getOptLists("Pronoun");
+const pronounsOpts = Morpho.lconjopt("Pronoun");
 ```
 
 In English, this will return this:
@@ -251,31 +239,31 @@ In English, this will return this:
 To get the name of the pronoun in its language:
 
 ```javascript
-var pronoun = morpho.goptname("Pronoun", <options>);
+let pronoun = morpho.gconjoptname("Pronoun", <options>);
 //var pronoun = morpho.getOptName("Pronoun", <options>);
 ```
 
 For example, if we want to get the English pronoun of the third person, plural, masculine:
 
 ```javascript
-var opts = {
+const opts = {
   person: "third",
   number: "plural",
   gender: "masculine" //we don't need this, actually
 };
-var pronoun = morpho.goptname("Pronoun", opts);
+let pronoun = Morpho.gconjoptname("Pronoun", opts);
 //This will have: "They"
 ```
 
 Or:
 
 ```javascript
-var opts = {
-  person: Morpho.Feature.Person.T,
-  number: Morpho.Feature.Number.P,
-  gender: Morpho.Feature.Gender.M //we don't need this, actually
+const opts = {
+  person: Morpho.Person.T,
+  number: Morpho.Number.P,
+  gender: Morpho.Gender.M //we don't need this, actually
 };
-var pronoun = morpho.goptname("Pronoun", opts);
+let pronoun = morpho.gconjoptname("Pronoun", opts);
 //This will have: "They"
 ```
 
@@ -284,7 +272,7 @@ var pronoun = morpho.goptname("Pronoun", opts);
 To get the list of voice options list ( a list of objects containing: person, number and gender properties):
 
 ```javascript
-var voiceOpts = morpho.lopt("Voice");
+const voiceOpts = Morpho.lconjopt("Voice");
 ```
 
 In English, this will return this:
@@ -299,26 +287,26 @@ In English, this will return this:
 To get the name of the voice in its language:
 
 ```javascript
-var v = morpho.goptname("Voice", <options>);
+let v = morpho.gconjoptname("Voice", <options>);
 ```
 
 For example, if we want to get the passive voice:
 
 ```javascript
-var opts = {
+const opts = {
   voice: "passive"
 };
-var v = morpho.goptname("Voice", opts);
+let v = Morpho.gconjoptname("Voice", opts);
 //This will have: "Passive"
 ```
 
 Or:
 
 ```javascript
-var opts = {
-  voice: Morpho.Feature.Voice.P
+const opts = {
+  voice: Morpho.Voice.P
 };
-var v = morpho.goptname("Voice", opts);
+let v = Morpho.gconjoptname("Voice", opts);
 //This will have: "Passive"
 ```
 
@@ -327,7 +315,7 @@ var v = morpho.goptname("Voice", opts);
 To get the list of voice options list ( a list of objects containing: person, number and gender properties):
 
 ```javascript
-var negationOpts = morpho.lopt("Negation");
+const negationOpts = Morpho.lconjopt("Negation");
 ```
 
 In English, this will return this:
@@ -342,26 +330,31 @@ In English, this will return this:
 To get the name of the negative in its language:
 
 ```javascript
-var n = morpho.goptname("Negation", <options>);
+let n = Morpho.gconjoptname("Negation", <options>);
 ```
 
 For example, if we want to get non negative name:
 
 ```javascript
-var opts = {
+const opts = {
   negated:0
 };
-var n = morpho.goptname("Negation", opts);
+let n = Morpho.gconjoptname("Negation", opts);
 //This will have: "affirmative"
+```
+
+### Get a verb's type
+
+```javascript
+let type = Morpho.gconjoptname("Negation", <options>);
 ```
 
 ### Conjugate a verb
 
-To conjugate a verb, we give the verb and the conjugation options to **conjugate** function or its abbreviated version **conj**, as follows:
+To conjugate a verb, we pass its infinitive form and conjugation options to **conj** function, as follows:
 
 ```javascript
-let conjugated = morpho.conj("<verb>", <options>, [<form_name>]);
-//var conjugated = morpho.conjugate("<verb>", <options>);
+let conjugated = Morpho.conj("<verb>", <options>, [<form_name>]);
 ```
 
 The options is an object with: mood, tense, aspect, negated, voice, person, number, gender, etc. properties.
@@ -371,24 +364,24 @@ For example, if we want to conjugate the verb **take** in "Indicative past conti
 
 ```javascript
 //Instantiate the English Morpho class
-var morpho = JsLingua.nserv("morpho", "eng");
-var opts = {
+const engMorpho = JsLingua.gserv("morpho", "eng");
+const opts = {
   //Form properties
-  mood: "indicative", // Morpho.Feature.Mood.Ind
-  tense: "past", // Morpho.Feature.Tense.Pa
-  aspect: "continuous", //Morpho.Feature.Aspect.C
+  mood: "indicative", // Morpho.Mood.Ind
+  tense: "past", // Morpho.Tense.Pa
+  aspect: "continuous", //Morpho.Aspect.C
 
   //negation and voice properties
   negated: 1,
-  voice: "passive", //Morpho.Feature.Voice.P
+  voice: "passive", //Morpho.Voice.P
 
   //pronoun properties
-  person: "first", //Morpho.Feature.Person.F
-  number: "singular", //Morpho.Feature.Number.S
-  gender: "masculine" //Morpho.Feature.Gender.M
+  person: "first", //Morpho.Person.F
+  number: "singular", //Morpho.Number.S
+  gender: "masculine" //Morpho.Gender.M
 
 };
-var conjugated = morpho.conj("take", opts);
+let conjugated = engMorpho.conj("take", opts);
 //This will have: "was not being taken"
 ```
 
@@ -401,43 +394,36 @@ Mostly, it gives a non vocabulary word.
 
 ### Stemming algorithms
 
-To get the list of available stemming algorithms implemented for the language.
-To get the list of available stemmers' names, two functions can be used:
-- availableStemmers()
-- lstem()
+To get the list of available stemmers' names, use the method **lstem()**
 
 ```javascript
-let stemList = morpho.lstem();
+const stemList = Morpho.lstem();
 //var stemList = morpho.availableStemmers();
 ```
 
 It will return a list of strings referring stemmers names.
 
-### Set the current stemmer
-
-Before stemming you have to tell which stemming algorithm you want to use.
-Two functions can be used:
-- setCurrentStemmer: the readable one
-- sstem: the abbreviated one
-
-```javascript
-morpho.sstem("<stemmer's name>");
-//morpho.setCurrentStemmer("<stemmer's name>");
-```
-
-The stemmer's name must be one of the list afforded by the language
-
 ### Get a stemmer's description
 
 ```javascript
-let desc = morpho.gstemdesc("<stemmer's name>");
-//var desc = morpho.getStemmerDesc("<stemmer's name>");
+let desc = Morpho.gstemdesc("<stemmer's name>");
 ```
+
+### Set the current stemmer
+
+Before stemming you have to select the stemming algorithm using **sstem**
+
+```javascript
+Morpho.sstem("<stemmer's name>");
+```
+
+The stemmer's name must be one from the list afforded by the language.
+
 
 ### Stemming a word
 
 ```javascript
-var stem = morpho.stem("<word>");
+let stem = Morpho.stem("<word>");
 ```
 
 ### Stemming example
@@ -445,10 +431,10 @@ var stem = morpho.stem("<word>");
 Suppose we want to stem English words using "porter" which is available for English.
 
 ```javascript
-var morpho = JsLingua.nserv("morpho", "eng");
-morpho.sstem("porter");
-console.log(morpho.stem("conditional"));
-console.log(morpho.stem("allowance"));
+const engMorpho = JsLingua.gserv("morpho", "eng");
+engMorpho.sstem("porter");
+console.log(engMorpho.stem("conditional"));
+console.log(engMorpho.stem("allowance"));
 ```
 
 The result will be:
@@ -464,16 +450,15 @@ It is the task of returning words to a standard unified format.
 To normalize a word:
 
 ```javascript
-let norm = morpho.norm("<word>", <options>);
-//var norm = morpho.normalize("<word>", <options>);
+let norm = Morpho.norm("<word>", <options>);
 ```
 
-The options is a string which controls normalization of a language; But, you can use the function without options to normalize by default.
+The "options" is a string which controls normalization of a language; But, you can use the function without options to normalize by default.
 
 For example; In English:
 
 ```javascript
-var norm = morpho.norm("ain't");
+let norm = Morpho.norm("ain't");
 //will have the value: "is not"
 ```
 
@@ -483,14 +468,14 @@ If it contains "\_", it will delete tatweel.
 There are other options, you can see them all in Arabic Morpho.
 
 ```javascript
-var morpho = JsLingua.nserv("morpho", "ara");
-var word = "أذهَــــــــب";
-console.log(morpho.norm(word, "voc"));//just vocalization
-console.log(morpho.norm(word, "alef"));//just alef
-console.log(morpho.norm(word, "_"));//just tatweel
-console.log(morpho.norm(word, "alef,_"));//alif and tatweel
-console.log(morpho.norm(word, "alef,voc"));//alif and vocalization
-console.log(morpho.norm(word));//default: all options
+const araMorpho = JsLingua.gserv("morpho", "ara");
+const word = "أذهَــــــــب";
+console.log(araMorpho.norm(word, "voc"));//just vocalization
+console.log(araMorpho.norm(word, "alef"));//just alef
+console.log(araMorpho.norm(word, "_"));//just tatweel
+console.log(araMorpho.norm(word, "alef,_"));//alif and tatweel
+console.log(araMorpho.norm(word, "alef,voc"));//alif and vocalization
+console.log(araMorpho.norm(word));//default: all options
 ```
 
 The result:
@@ -508,13 +493,12 @@ The result:
 
 A list of tools to convert a word to another; for example: plurals, etc.
 
-### conversion algorithms
+### conversion algorithms list
 
 To get the list of available conversion algorithms implemented for the language
 
 ```javascript
-let convList = morpho.lconv();
-//var convList = morpho.availablePosConverters();
+const convList = Morpho.lconv();
 ```
 
 It will return a list of strings referring converters names.
@@ -524,24 +508,23 @@ It will return a list of strings referring converters names.
 Before conversion, you have to tell which conversion algorithm you want to use
 
 ```javascript
-morpho.sconv("<converter's name>");
-//morpho.setCurrentPosConverter("<converter's name>");
+Morpho.sconv("<converter's name>");
 ```
 
-The converter's name must be one of the list afforded by the language
+The converter's name must be in the list afforded by the language
 
 ### Get a converter's description
 
 ```javascript
-let desc = morpho.gconvdesc("<converter's name>");
-//var desc = morpho.getPosConverterDesc("<converter's name>");
+let desc = Morpho.gconvdesc("<converter's name>");
 ```
 
 ### Converting a word
 
+After setting the current converter, this function can be called
+
 ```javascript
-let convWord = morpho.conv("<word>");
-//var convWord = morpho.convertPoS("<word>");
+let convWord = Morpho.conv("<word>");
 ```
 
 ### conversion example
@@ -549,12 +532,12 @@ let convWord = morpho.conv("<word>");
 Suppose we want to convert English words using "sing2pl" converter which is available for English.
 
 ```javascript
-var morpho = JsLingua.nserv("morpho", "eng");
-morpho.sconv("sing2pl");
-console.log(morpho.conv("ox"));
-console.log(morpho.conv("cat"));
-console.log(morpho.conv("cat"));
-console.log(morpho.conv("life"));
+const engMorpho = JsLingua.nserv("morpho", "eng");
+engMorpho.sconv("sing2pl");
+console.log(engMorpho.conv("ox"));
+console.log(engMorpho.conv("cat"));
+console.log(engMorpho.conv("cat"));
+console.log(engMorpho.conv("life"));
 ```
 
 The result will be:
@@ -565,120 +548,55 @@ oxen
 lives
 ```
 
-## Storage chaining functions
+## Text segmentation
 
-If you want to apply the same operation over and over, and get the list of results;
-JsLingua affords the storage chaining functions for Morpho module.
+Sentence segmentation and word tokenization.
 
-We access the storage via the object **Morpho.s**. There is a function called **clear()** which clears
-the storage. It is recommended to call it first, in case you used **Morpho.s** before.
+### Sentence segmentation
 
 ```javascript
-let engMorpho = JsLingua.nserv("morpho", "eng");
-engMorpho.s.clear();
+let sentences = Morpho.gsents("<text>");
 ```
 
-### For stemming
-
-The functions afforded by **Morpho.s** are:
-
-- **Morpho.s.sstem(< stemming name >)**: sets the stemming method.
-- **Morpho.s.stem(< word >)**: stems the word using the steming method, and stores the result in an inner table.
-- **Morpho.s.lstem()**: returns the result table
-
-Example:
+### Word tokenization
 
 ```javascript
-let engMorpho = JsLingua.nserv("morpho", "eng");
-engMorpho.s.clear().sstem("porter").stem("analogousli").stem("vietnamization").sstem("lancaster").stem("maximum").stem("presumably");
-console.log(engLang.s.lstem());
+let words = Morpho.gwords("<text>");
 ```
 
-This will result in:
-```
-["analog", "vietnam", "maxim", "presum"]
-```
-
-### For conjugation
-
-The functions afforded by **Morpho.s** are:
-
-- **Morpho.s.conj(< verb >, < opts >, < form_name >)**: conjugates the verb using the options and stores the result in an inner table.
-The option can be omitted if we want to conjugate another verb with the same options used before.
-- **Morpho.s.lconj()**: returns the result table
-
-Example:
+### Segmentation example
 
 ```javascript
-let engMorpho = JsLingua.nserv("morpho", "eng");
-let hesheit = {person: "third", number: "singular"};
-let $ = Object.assign;//to fuse two objects
+const engMorpho = JsLingua.gserv("morpho", "eng");
+const text = "I've seen Dr. Watson. Is he good?";
+console.log(engMorpho.gsents(text));
+console.log(engMorpho.gwords(text));
+```
+The result will be:
 
-engMorpho.s.clear().conj("go", $({tense:"present"}, hesheit)).conj("fly")
-            .conj("fly", $({tense:"past"}, hesheit)).conj("go")
-            .conj("go", $({tense:"future"}, hesheit))
-            .conj("go", hesheit, "pres_perf");
-console.log(engMorpho.s.lconj());
+```
+[ "I've seen Dr. Watson", '.', 'Is he good', '?' ]
+[ "I've", 'seen', 'Dr.', 'Watson.', 'Is', 'he', 'good?' ]
 ```
 
-This will result in:
-```
-["goes", "flies", "flew", "went", "will go", "has gone"]
-```
+## Stop Words Filtering
 
-### For PoS conversion
-
-The functions afforded by **Morpho.s** are:
-
-- **Morpho.s.sconv(< conversion name >)**: sets the conversion method.
-- **Morpho.s.conv(< word >)**: convert the word using the conversion method, and stores the result in an inner table.
-- **Morpho.s.lconv()**: returns the result table
-
-Example:
+Deleting stop words from a given list of words.
+Either using default stop word list
 
 ```javascript
-let engMorpho = JsLingua.nserv("morpho", "eng");
-let hesheit = {person: "third", number: "singular"};
-
-engMorpho.s.clear().sconv("sing2pl").conv("alley").conv("ally").conv("leaf");
-console.log(engMorpho.s.lconv());
+let filtered_words = Morpho.filter(<list-words>);
 ```
 
-This will result in:
-```
-["alleys", "allies",  "leaves"]
-```
-
-## Mixing storage chaining functions
-
-Each result of a function is stored apart. Even if we mix the functions, the results still be in different tables.
-
-Lets mix the previous examples:
+Or, by affording a list of stop words
 
 ```javascript
-let engMorpho = JsLingua.nserv("morpho", "eng");
-let hesheit = {person: "third", number: "singular"};
-
-engMorpho.s.clear().sstem("porter").conj("go", $({tense:"present"}, hesheit))
-            .stem("analogousli")
-            .sconv("sing2pl").conv("alley")
-            .stem("vietnamization")
-            .conj("fly").conj("fly", $({tense:"past"}, hesheit))
-            .conv("ally")
-            .sstem("lancaster").stem("maximum")
-            .conj("go").conj("go", $({tense:"future"}, hesheit))
-            .conv("leaf")
-            .stem("presumably");
-console.log(engMorpho.s.lstem());
-console.log(engMorpho.s.lconj());
-console.log(engMorpho.s.lconv());
+let filtered_words = Morpho.filter(<list-words>, <list-of-stop-words>);
 ```
 
-This will result in:
-```
-["analog", "vietnam", "maxim", "presum"]
-["goes", "flies", "flew", "went", "will go"]
-["alleys", "allies",  "leaves"]
-```
+For example:
+
+
+
 
 [Return to index](./index.md)
